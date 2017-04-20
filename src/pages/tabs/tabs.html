@@ -1,0 +1,37 @@
+
+<ion-tabs tabsPlacement="top" color="dark" >
+	<!-- ion tabs -->
+  <ion-tab [root]="tab1Root" (ionSelect)="viewMode()" tabTitle="Paso por parada" tabIcon="emt-paso"></ion-tab>
+  <ion-tab [root]="tab2Root" (ionSelect)="viewModeMap()" tabTitle="Paradas" tabIcon="emt-gps"></ion-tab>
+  <ion-tab [root]="tab3Root" (ionSelect)="viewMode()" tabTitle="Líneas" tabIcon="emt-lineas"></ion-tab>
+  <ion-tab [root]="tab4Root" (ionSelect)="viewMode()" tabTitle="Avisos" tabIcon="information-circle"></ion-tab>
+
+  	<!-- floating bottom -->
+
+  <ion-fab right bottom  #fab *ngIf="viewModel !== 'map'">
+	   	 <button ion-fab color="dark" auto-close-on-click-outside>
+	    	<ion-icon name="add"></ion-icon>
+	   	 </button>
+
+	  	 <ion-fab-list side="top">
+
+		     <button ion-fab (click)="goToContactPage($event, fab)">
+		         <img src="assets/img/contact2.svg"> 
+		     </button>
+	    	 <ion-label class="fablabelContact">Contacto</ion-label >
+
+
+	    	 <button ion-fab (click)="goToAboutPage($event, fab)">
+	             <img src="assets/icon/favicon.ico">
+	   	     </button>
+	     	 <ion-label class="fablabelAbout">Acerca de</ion-label>
+
+	     	 <button ion-fab (click)="goToSettingsPage($event, fab)">
+	             <img src="assets/img/settings2.svg">
+	   	     </button>
+	     	 <ion-label class="fablabelSetting">Ajustes</ion-label>
+
+	     </ion-fab-list>
+  </ion-fab>
+</ion-tabs>
+
