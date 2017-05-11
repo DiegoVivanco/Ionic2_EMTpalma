@@ -15,6 +15,7 @@ export class HomePage {
   publicKey: any;
   encrypted: any;
   encodedData: any;
+  items: any;
 
 
 
@@ -46,6 +47,8 @@ encrytedKey(){
 
   var encodedData = window.btoa(encrypted); // encode a string
   console.log("you encryptedKey is" + encodedData);
+
+  return encodedData;
 }
 /* 
 1.- Se deberá encriptar el UUID usando la clave pública del servidor (formato PEM),
@@ -122,6 +125,22 @@ function serialize_ordered(json) {
 } 
 */ 
 
+forge() {
+  this.items = {
+    apikey: 'dc80b57e-30b4-4d62-91e6-d8e4f01d916f',
+    uuid: this.encrytedKey(),
+    someData: 5,
+  };
+
+  //Ejemplo usando la librería de javascript forge:
+
+  var hmac = forge.hmac.create();
+  hmac.start('sha1', keys.signingkey);
+  var document = serialize_ordered(options.data);
+  hmac.update(document);
+  options.data.signature = hmac.digest().toHex();
+
+}
   keyHasBeedPressed(){
 
       this.http.get('https://itunes.apple.com/search?term='
