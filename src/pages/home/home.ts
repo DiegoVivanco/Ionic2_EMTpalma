@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { forge } from 'node-forge';
+import * as forge from 'node-forge';
 import * as $ from 'jquery';
 import 'rxjs/add/operator/map';
 
@@ -32,10 +32,20 @@ export class HomePage {
 
   }
 
+
 encrytedKey(){
+
+  var pki = forge.pki;
+  var pem = '-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+66XeCve4EAUjFcsu7VncTXhSusYh5fx55z81IjMherW5ARjNfxt6maZuUevYelge+noYMevkQh2QM3qjCQs+IOSbr/15Xq5JZy4aLeoCpHcdKIA7B9zBHxGTrbDnP/N1VjDkIRhkcbWjbXB550Zkn/lbWtIyVuncSIfxSS0Ge8VYx9kD33vKANE+KvWDXqFjcyh9K6MGuPz4eJ9Q31nvduOa2XaAAzDL9CnqpON0KjlR4ZB8FrNjDqrY+/000uApVzTojbZnkP6JKzcKDHjEbGDAu4k9OcIoePmKJrf8nidfojKgyuHyoEOfMiN4LbyGLClMTPBlrhyHPsuCqYAZQIDAQAB-----END PUBLIC KEY-----';
+
+// convert a PEM-formatted public key to a Forge public key
+  var publicKey = pki.publicKeyFromPem(pem); 
+
   var bytes = 1024;
-  var encrypted = this.publicKey.encrypt(bytes, 'RSAES-PKCS1-V1_5');
-  console.log(encrypted) ;
+  var encrypted = publicKey.encrypt(bytes, 'RSAES-PKCS1-V1_5');
+
+  var encodedData = window.btoa(encrypted); // encode a string
+  console.log("you encryptedKey is" + encodedData);
 }
 /* 
 1.- Se deberá encriptar el UUID usando la clave pública del servidor (formato PEM),
