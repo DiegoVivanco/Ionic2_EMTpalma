@@ -19,7 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { Storage } from '@ionic/storage';
 import {IonicStorageModule} from '@ionic/storage';
 import { Paradas } from '../providers/paradas';
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -56,6 +56,7 @@ import { Paradas } from '../providers/paradas';
     SplashScreen,
     GoogleMaps,
     Paradas,
+    Geolocation,
     //Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
