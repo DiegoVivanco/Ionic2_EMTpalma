@@ -4,7 +4,21 @@ page-home {
 	}
 
 	.logo {
-    text-align: center;
+        text-align: center;
+	}
+
+	.bus {
+		width: 30px;
+		height: 30px;
+	}
+
+	.numeroParada{
+		padding: 2px 18px;
+		border: 1px solid black;	
+	}
+
+	.eliminar {
+		z-index: 10;
 	}
 
 }

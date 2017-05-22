@@ -1,14 +1,7 @@
-import { Component, ViewChild, NgZone } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController  } from 'ionic-angular'; //ActionSheetController
-import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
-import {
- GoogleMaps,
- GoogleMapsEvent,
- LatLng,
- CameraPosition,
- MarkerOptions,
- Marker
-} from '@ionic-native/google-maps';
+//import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
+
 
 import { googlemaps } from 'googlemaps';
 //import * as $ from 'jquery';

@@ -9,8 +9,10 @@
 
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
+
   <meta name="theme-color" content="#4e8ef7">
- 
+
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
 
@@ -33,12 +35,19 @@
 
   <!-- init map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyAJYmGapA_oyQ79svfrCvbhGAzzYuDsQ"></script>
-  
+
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
 
   <!-- The bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+
+  <script src="forge.min.js"></script>
+
+  <script src="../node_modules/node-forge/dist/forge.min.js"></script>
+
+  <script src="../bower_components/forge/dist/forge.min.js"></script>
+
 
 </body>
 </html>
