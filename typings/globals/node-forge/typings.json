@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/295172d48b9c6af69d23c0d7271d5b9201c64aa0/node-forge/index.d.ts",
+    "raw": "registry:dt/node-forge#0.6.43+20170322163133",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/295172d48b9c6af69d23c0d7271d5b9201c64aa0/node-forge/index.d.ts"
+  }
+}
