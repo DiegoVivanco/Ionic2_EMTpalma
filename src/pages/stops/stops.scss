@@ -13,8 +13,8 @@ page-stops {
 
   .myDivNumber {
     position: absolute;
-    top: -14px;
-    left: 7px;
+    top: -8px;
+    left: 33px;
     border: 1px solid #00001a;
     background: white;
     text-align: center;
@@ -38,9 +38,9 @@ page-stops {
     transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
   }
 
-  //.marker-cluster-small {
-  //  background-color: rgba(181, 226, 140, 0.6);
-  //}
+  .marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.6);
+  }
   .marker-cluster-small div {
     background-color: rgba(18, 28, 255, 0.73);
   }
@@ -81,6 +81,15 @@ page-stops {
     background-color: rgb(241, 128, 23);
   }
 
+  .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    position: relative;
+    top: 0px;
+    left: 11px;
+    background: rgba(71,68,71,0.95);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.1);
+    color: white;
+}
+
   .marker-cluster {
     background-clip: padding-box;
     border-radius: 20px;
@@ -96,6 +105,37 @@ page-stops {
     font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
   }
   .marker-cluster span {
+    color: white;
     line-height: 30px;
   }
+
+  .lineaNum {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    line-height: 26px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    color: white;
+  }
+
+  .selectCoords {
+    display: block;
+    width: 100%;
+    color: #EEE;
+    background: rgba(71,68,71,0.95);
+    height: 30px;
+    border-width: 1px;
+  }
+
+  .selectCoords:hover {
+    color: #1a1e06;
+    background: rgba(255,255,255,0.95);
+  }
 }
+
+

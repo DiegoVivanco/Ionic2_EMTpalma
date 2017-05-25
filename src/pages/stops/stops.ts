@@ -2,13 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController  } from 'ionic-angular'; //ActionSheetController
 //import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
-
+import { Paradas } from '../../providers/paradas';
 import L from 'leaflet';
 import 'leaflet.markercluster';
 
 //import { googlemaps } from 'googlemaps';
 //import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
-
+import * as $ from 'jquery'
 
 
 @Component({
@@ -18,20 +18,20 @@ import 'leaflet.markercluster';
 export class StopsPage {
   cluster;
   @ViewChild('map') mapElement;
-   //map: any;
-   infoWindows: any;
    Coordinates: any;
    watch:any;
-   map: any;
+   paradas: any;
 
 
   constructor(
               public navCtrl: NavController,
               public modalCtrl: ModalController,
+              public paradasService : Paradas,
               private geolocation: Geolocation)
   {
     this.cluster = L.markerClusterGroup();
-    this.infoWindows = [];
+    this.paradas = this.paradasService.load();
+
   }
 
 
@@ -63,30 +63,45 @@ export class StopsPage {
     }).addTo(map);
 
 
-    let busIcon =  new L.DivIcon({
-      className: 'myDivIcon',
-      html: '<img class="myDivImage" src="../../assets/img/bus2.png"/>'+
-      '<div class="myDivNumber">522</div>'
-    });
 
-    let popupLink='<button class="merch-link" data-merchId="200">Eres un pro</button>'
-    // let busIcon = L.icon({
-    //   iconUrl: '../../assets/img/bus2.png',
-    //
-    //   iconSize:     [60, 60], // size of the icon
-    //   // shadowSize:   [50, 64], // size of the shadow
-    //   // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    //   // shadowAnchor: [4, 62],  // the same for the shadow
-    //   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    // });
 
-    this.cluster.addLayer(L.marker([39.5717899,2.6545994], {icon: busIcon}).bindPopup(popupLink));
 
-    this.cluster.addLayer(L.marker([39.5757088,2.653719], {icon: busIcon}).bindPopup(popupLink));
-    this.cluster.addLayer(L.marker([0,0], {icon: busIcon}));
+
+
+    this.paradas.forEach(property => {
+          let busIcon =  new L.DivIcon({
+              className: 'myDivIcon',
+              html: '<img class="myDivImage" src="../../assets/img/bus2.png"/>'+
+              '<div class="myDivNumber">'+property.numeroParada+'</div>'
+            }); 
+
+          let popupLink=  '<div>' +
+                       '<p class="name"> '+property.numeroParada+' - '+property.nombreParada+'</p>' +
+
+                        '<span class="routeList small">' +
+
+                            '<a class="lineaNum" style="cursor: pointer; background-color: rgb(114, 192, 216);">5</a>' +
+
+                            '<a class="lineaNum" style="cursor: pointer; background-color: rgb(238, 170, 96);">46</a>' +
+
+                        '</span>' +
+
+                        '<button class="selectCoords">Seleccionar</button>' +
+                    '</div>';
+      this.cluster.addLayer(L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink));
+
+    })             
+    
+    //this.cluster.addLayer(L.marker([39.5757088,2.653719], {icon: busIcon}).bindPopup(popupLink));
+   // this.cluster.addLayer(L.marker([0,0], {icon: busIcon}));
+
 
 
     map.addLayer(this.cluster);
+
+    $('#map').on('click', '.selectCoords', function(e) {
+    console.log(e.target.data);
+});
   }
 
  //   executemap()39.5717899
