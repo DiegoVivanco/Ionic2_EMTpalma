@@ -1,14 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, ModalController  } from 'ionic-angular'; //ActionSheetController
+import { NavController, ModalController, ActionSheetController  } from 'ionic-angular'; //ActionSheetController
 //import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 import { Paradas } from '../../providers/paradas';
+import { HomePage } from '../home/home';
+//import { Nav, Platform } from 'ionic-angular';
+
+
 import L from 'leaflet';
 import 'leaflet.markercluster';
 
 //import { googlemaps } from 'googlemaps';
 //import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
-import * as $ from 'jquery'
+import * as jQuery  from 'jquery'
 
 
 @Component({
@@ -20,89 +24,123 @@ export class StopsPage {
   @ViewChild('map') mapElement;
    Coordinates: any;
    watch:any;
-   paradas: any;
+   paradas: Array<any>;
+   homePage: any;
+   map;
 
 
   constructor(
               public navCtrl: NavController,
               public modalCtrl: ModalController,
               public paradasService : Paradas,
-              private geolocation: Geolocation)
+              private geolocation: Geolocation,
+              public actionSheetCtrl: ActionSheetController)
   {
     this.cluster = L.markerClusterGroup();
     this.paradas = this.paradasService.load();
-
+    this.homePage = HomePage;
   }
 
-
-  ionViewDidEnter() {
-
+  ionViewDidLoad() {
       /*Initializing geolocation*/
-    let options = {
-      frequency: 3000,
-      enableHighAccuracy: true
-    };
+    let options = { frequency: 3000, enableHighAccuracy: true };
 
     this.watch = this.geolocation.watchPosition(options)
     .subscribe((position: Geoposition) => {
       console.log(position);
-      this.Coordinates = position.coords;
-    //   this.executemap()
+      this.Coordinates = position.coords;   
     });
 
   }
 
   ngOnInit(): void {
-    let map = L.map('map')
-      .setView([39.5748641, 2.6449896], 14);
+    this.map = L.map('map').setView([39.5748641, 2.6449896], 14);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
       zoom: 14,
       accessToken: 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA'
-    }).addTo(map);
+    }).addTo(this.map);
+    this.showMarkers();
+
+   //jQuery('#map').on('click', '.selectCoords', function(e) {
+      //this.navCtrler.push(this.homePage);
+    //  console.log(e.target.id);
+ // }); 
+
+}
 
 
 
-
-
-
-
+  showMarkers(){
     this.paradas.forEach(property => {
-          let busIcon =  new L.DivIcon({
-              className: 'myDivIcon',
-              html: '<img class="myDivImage" src="../../assets/img/bus2.png"/>'+
-              '<div class="myDivNumber">'+property.numeroParada+'</div>'
-            }); 
+        let busIcon =  new L.DivIcon({
+            className: 'myDivIcon',
+            html: '<img class="myDivImage" src="../../assets/img/bus2.png"/>'+
+            '<div class="myDivNumber">'+property.numeroParada+'</div>'
+          }); 
 
-          let popupLink=  '<div>' +
-                       '<p class="name"> '+property.numeroParada+' - '+property.nombreParada+'</p>' +
+        let popupLink=  '<div>' +
+                     '<p class="name"> '+property.numeroParada+' - '+property.nombreParada+'</p>' +
 
-                        '<span class="routeList small">' +
+                      '<span class="routeList small">' +
 
-                            '<a class="lineaNum" style="cursor: pointer; background-color: rgb(114, 192, 216);">5</a>' +
+                          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(114, 192, 216);">5</a>' +
 
-                            '<a class="lineaNum" style="cursor: pointer; background-color: rgb(238, 170, 96);">46</a>' +
+                          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(238, 170, 96);">46</a>' +
 
-                        '</span>' +
+                      '</span>' +
 
-                        '<button class="selectCoords">Seleccionar</button>' +
-                    '</div>';
-      this.cluster.addLayer(L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink));
+                      '<button class="selectCoords" id="'+property.numeroParada+'" click)="goToHome('+property+')" >Seleccionar</button>' +
+                  '</div>';
 
-    })             
-    
-    //this.cluster.addLayer(L.marker([39.5757088,2.653719], {icon: busIcon}).bindPopup(popupLink));
-   // this.cluster.addLayer(L.marker([0,0], {icon: busIcon}));
+    this.cluster.addLayer(L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink).on('click', event => this.openPropertyDetail(property, L.marker)));
+    }); 
 
-
-
-    map.addLayer(this.cluster);
-
-    $('#map').on('click', '.selectCoords', function(e) {
-    console.log(e.target.data);
-});
+//.on('click', event => this.openPropertyDetail(event.target.data));
+    this.map.addLayer(this.cluster);
   }
+
+  openPropertyDetail(property: any, marker: any){
+    console.log(property);
+    console.log(marker.getPopup());
+        let actionSheet = this.actionSheetCtrl.create({
+        title: 'Parada ' + property.numeroParada + ' - ' + property.nombreParada,
+        buttons: [
+          {
+            text: 'Paso por parada',
+            icon: 'bus',
+            role: 'Paso por parada',
+            handler: () => {
+              console.log('Destructive clicked');
+            }
+          },
+          {
+            text: 'Añadir a favoritos',
+            icon: 'star',
+            handler: () => {
+              console.log('Archive clicked');
+            }
+          },
+          {
+            text: 'Cancelar',
+            icon: 'close',
+            role: 'Cancelar',
+            handler: () => {
+              jQuery(".leaflet-popup-close-button")[0].click();
+              console.log('Cancel clicked');
+            }
+          }
+        ]
+      });
+ 
+      actionSheet.present();
+
+  }
+
+
+
+}
 
  //   executemap()39.5717899
  //
@@ -197,4 +235,4 @@ export class StopsPage {
 
       });
     }*/
-}
+//}
