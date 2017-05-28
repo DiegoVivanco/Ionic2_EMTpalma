@@ -26,6 +26,7 @@ export class StopsPage {
    watch:any;
    paradas: Array<any>;
    homePage: any;
+   marker;
    map;
 
 
@@ -64,7 +65,7 @@ export class StopsPage {
     this.showMarkers();
 
    //jQuery('#map').on('click', '.selectCoords', function(e) {
-      //this.navCtrler.push(this.homePage);
+      //this.navCtrl.push(this.homePage);
     //  console.log(e.target.id);
  // }); 
 
@@ -93,17 +94,17 @@ export class StopsPage {
 
                       '<button class="selectCoords" id="'+property.numeroParada+'" click)="goToHome('+property+')" >Seleccionar</button>' +
                   '</div>';
-
-    this.cluster.addLayer(L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink).on('click', event => this.openPropertyDetail(property, L.marker)));
+    this.marker = L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink).on('click', event => this.openPropertyDetail(property));
+    this.cluster.addLayer(this.marker);
     }); 
 
 //.on('click', event => this.openPropertyDetail(event.target.data));
     this.map.addLayer(this.cluster);
   }
 
-  openPropertyDetail(property: any, marker: any){
+  openPropertyDetail(property: any){
+    console.log(this.marker.getPopup());
     console.log(property);
-    console.log(marker.getPopup());
         let actionSheet = this.actionSheetCtrl.create({
         title: 'Parada ' + property.numeroParada + ' - ' + property.nombreParada,
         buttons: [
@@ -127,17 +128,22 @@ export class StopsPage {
             icon: 'close',
             role: 'Cancelar',
             handler: () => {
-              jQuery(".leaflet-popup-close-button")[0].click();
-              console.log('Cancel clicked');
+              this.closePopUp();        
             }
           }
         ]
       });
  
       actionSheet.present();
-
   }
 
+
+closePopUp(){ 
+  console.log('Cancel clicked');
+  if(jQuery(".leaflet-popup-close-button")){
+      jQuery(".leaflet-popup-close-button")[0].click();
+    }
+}
 
 
 }
