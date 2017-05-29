@@ -25,7 +25,7 @@
 			<p>{{result.artistName}}</p>
 			<ion-icon item-right [name]="result.kind === 'song' ? 'musical-notes' : 'film'"></ion-icon>
 			<ion-icon item-right person [hidden]="result.kind !== 'song'"></ion-icon> -->
-		    <img item-left class="bus" src="assets/img/bus.svg"> 
+		    <img item-left class="bus" src="assets/img/bus.png"> 
 			<div item-left class="numeroParada">{{result.numeroParada}}</div>
             <h2 [innerText]="result.nombreParada"></h2>
 		</button>
@@ -35,7 +35,7 @@
 			  [hidden]="paradasConsultadas.length == 0">
 		<ion-item-divider color="primary" class="logo" fixed>Paradas Consultadas</ion-item-divider>
 		<button ion-item *ngFor="let parada of paradasConsultadas">
-		    <img item-left class="bus" src="../../assets/img/bus.png"> 
+		    <img item-left class="bus" src="assets/img/bus.png"> 
 			<div item-left class="numeroParada">{{parada.index}}</div>
             <h2 [innerText]="parada.name"></h2>
 			<ion-icon  class="eliminar" item-right color="danger" 

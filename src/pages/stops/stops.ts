@@ -79,7 +79,7 @@ export class StopsPage {
     this.paradas.forEach(property => {
         let busIcon =  new L.DivIcon({
             className: 'myDivIcon',
-            html: '<img class="myDivImage" src="assets/img/bus2.svg"/>'+
+            html: '<img class="myDivImage" src="assets/img/bus2.png"/>'+
             '<div class="myDivNumber">'+property.numeroParada+'</div>'
           }); 
 
