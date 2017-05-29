@@ -20,7 +20,7 @@ export class Lineas {
   		{
   		 "linea": 1,
   		 "nombreLinea": "Aeroport-Ciutat-Port",
-  		 "color": "rgb(68, 116, 63);",
+  		 "color": "rgb(68, 116, 63)",
   		},
   		{
   		 "linea": 2,
