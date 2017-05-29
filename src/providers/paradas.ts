@@ -33,20 +33,20 @@ export class Paradas {
         {
           "numeroParada": "3", 
           "nombreParada": "Comte de Sallent",
-          "longitud": "",
-          "latitud": ""
+          "longitud": "2.6501061",
+          "latitud": "39.578271"
         },
         {
           "numeroParada": "4", 
           "nombreParada": "Biniamar, 10",
-          "longitud": "",
-          "latitud": ""
+          "longitud": "2.6787203",
+          "latitud": "39.5821927"
         },
         {
           "numeroParada": "6", 
           "nombreParada": "Porta de Sant Antoni",
-          "longitud": "",
-          "latitud": ""
+          "longitud": "2.6548835",
+          "latitud": "39.571844"
         },
         {
           "numeroParada": "7", 

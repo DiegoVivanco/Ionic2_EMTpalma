@@ -1,7 +1,7 @@
 
 <ion-tabs tabsPlacement="top" color="dark" >
 	<!-- ion tabs -->
-  <ion-tab [root]="tab1Root" (ionSelect)="viewMode()" tabTitle="Paso por parada" tabIcon="emt-paso"></ion-tab>
+  <ion-tab #myNav [root]="tab1Root" (ionSelect)="viewMode()" tabTitle="Paso por parada" tabIcon="emt-paso"></ion-tab>
   <ion-tab [root]="tab2Root" (ionSelect)="viewModeMap()" tabTitle="Paradas" tabIcon="emt-gps"></ion-tab>
   <ion-tab [root]="tab3Root" (ionSelect)="viewMode()" tabTitle="Líneas" tabIcon="emt-lineas"></ion-tab>
   <ion-tab [root]="tab4Root" (ionSelect)="viewMode()" tabTitle="Avisos" tabIcon="information-circle"></ion-tab>

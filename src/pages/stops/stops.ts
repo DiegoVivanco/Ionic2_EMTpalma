@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, ModalController, ActionSheetController  } from 'ionic-angular'; //ActionSheetController
+import { NavController, ModalController, ActionSheetController, Events } from 'ionic-angular'; //ActionSheetController
 //import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 import { Paradas } from '../../providers/paradas';
@@ -25,7 +25,7 @@ export class StopsPage {
    Coordinates: any;
    watch:any;
    paradas: Array<any>;
-   homePage: any;
+   tab1Root;
    marker;
    map;
 
@@ -35,11 +35,12 @@ export class StopsPage {
               public modalCtrl: ModalController,
               public paradasService : Paradas,
               private geolocation: Geolocation,
-              public actionSheetCtrl: ActionSheetController)
+              public actionSheetCtrl: ActionSheetController,
+              public events: Events)
   {
     this.cluster = L.markerClusterGroup();
     this.paradas = this.paradasService.load();
-    this.homePage = HomePage;
+    this.tab1Root = HomePage;
   }
 
   ionViewDidLoad() {
@@ -64,10 +65,11 @@ export class StopsPage {
     }).addTo(this.map);
     this.showMarkers();
 
-   //jQuery('#map').on('click', '.selectCoords', function(e) {
-      //this.navCtrl.push(this.homePage);
-    //  console.log(e.target.id);
- // }); 
+    const self = <StopsPage> this;
+   jQuery('#map').on('click', '.selectCoords', function(e) {
+     self.events.publish('user:created', e.target.id);
+     self.navCtrl.parent.select(0)
+  }); 
 
 }
 
@@ -92,12 +94,12 @@ export class StopsPage {
 
                       '</span>' +
 
-                      '<button class="selectCoords" id="'+property.numeroParada+'" click)="goToHome('+property+')" >Seleccionar</button>' +
+                      '<button class="selectCoords" id="'+property.numeroParada+'" (click)="goToHome('+property+')" >Seleccionar</button>' +
                   '</div>';
-    this.marker = L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink).on('click', event => this.openPropertyDetail(property));
+    this.marker = L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink);
     this.cluster.addLayer(this.marker);
     }); 
-
+// .on('click', event => this.openPropertyDetail(property));
 //.on('click', event => this.openPropertyDetail(event.target.data));
     this.map.addLayer(this.cluster);
   }

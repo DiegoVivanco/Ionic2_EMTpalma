@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, NavParams, Events } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
@@ -30,7 +30,9 @@ export class HomePage {
     public http: Http, 
     public storage: Storage,
     public paradasService : Paradas,
-    protected platform : Platform) {
+    public navParams: NavParams,
+    protected platform : Platform,
+    public events: Events) {
       this.paradasConsultadas = [];
       this.paradas = this.paradasService.load();
       this.results = [];
@@ -39,6 +41,13 @@ export class HomePage {
       this.getAllItems();
       this.isSearching = true;
       console.log(this.paradas);
+
+        events.subscribe('user:created', (id) => {
+          this.keyword = id;
+       //   this.keyHasBeedPressed(id);
+    // user and time are the same arguments passed in `events.publish(user, time)`
+    console.log('Welcome', id);
+  });
       //this.encrytedKey();
      // this.getAuthorization();
       //this.decryptedKey();
