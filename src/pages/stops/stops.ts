@@ -39,7 +39,7 @@ export class StopsPage {
               public events: Events)
   {
     this.cluster = L.markerClusterGroup();
-    this.paradas = this.paradasService.load();
+    this.paradas = this.paradasService.loadParadas();
     this.tab1Root = HomePage;
   }
 

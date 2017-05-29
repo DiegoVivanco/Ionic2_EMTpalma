@@ -34,7 +34,7 @@ export class HomePage {
     protected platform : Platform,
     public events: Events) {
       this.paradasConsultadas = [];
-      this.paradas = this.paradasService.load();
+      this.paradas = this.paradasService.loadParadas();
       this.results = [];
   	  this.keyword = '';
       this.response = '';

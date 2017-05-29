@@ -13,10 +13,9 @@ export class Paradas {
 
   paradas: any;
 
-  constructor(public http: Http) {
-  }
+  constructor(public http: Http) {}
 
-	load(){
+	loadParadas(){
     return [
         {
           "numeroParada": "1", 

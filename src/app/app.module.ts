@@ -19,6 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //import { Storage } from '@ionic/storage';
 import {IonicStorageModule} from '@ionic/storage';
 import { Paradas } from '../providers/paradas';
+import { Lineas } from '../providers/lineas';
+
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -57,6 +59,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     GoogleMaps,
     Paradas,
     Geolocation,
+    Lineas,
     //Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
