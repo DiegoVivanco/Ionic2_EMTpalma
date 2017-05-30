@@ -50,7 +50,7 @@ export class StopsPage {
     this.watch = this.geolocation.watchPosition(options)
     .subscribe((position: Geoposition) => {
       console.log(position);
-      this.Coordinates = position.coords;   
+      this.Coordinates = position.coords;
     });
 
   }
@@ -67,9 +67,9 @@ export class StopsPage {
 
     const self = <StopsPage> this;
    jQuery('#map').on('click', '.selectCoords', function(e) {
+     self.navCtrl.parent.select(0);
      self.events.publish('user:created', e.target.id);
-     self.navCtrl.parent.select(0)
-  }); 
+  });
 
 }
 
@@ -81,7 +81,7 @@ export class StopsPage {
             className: 'myDivIcon',
             html: '<img class="myDivImage" src="assets/img/bus2.png"/>'+
             '<div class="myDivNumber">'+property.numeroParada+'</div>'
-          }); 
+          });
 
         let popupLink=  '<div>' +
                      '<p class="name"> '+property.numeroParada+' - '+property.nombreParada+'</p>' +
@@ -98,7 +98,7 @@ export class StopsPage {
                   '</div>';
     this.marker = L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink);
     this.cluster.addLayer(this.marker);
-    }); 
+    });
 // .on('click', event => this.openPropertyDetail(property));
 //.on('click', event => this.openPropertyDetail(event.target.data));
     this.map.addLayer(this.cluster);
@@ -130,17 +130,17 @@ export class StopsPage {
             icon: 'close',
             role: 'Cancelar',
             handler: () => {
-              this.closePopUp();        
+              this.closePopUp();
             }
           }
         ]
       });
- 
+
       actionSheet.present();
   }
 
 
-closePopUp(){ 
+closePopUp(){
   console.log('Cancel clicked');
   if(jQuery(".leaflet-popup-close-button")){
       jQuery(".leaflet-popup-close-button")[0].click();

@@ -42,8 +42,11 @@ export class HomePage {
     this.isSearching = true;
     console.log(this.paradas);
 
-    events.subscribe('user:created', (id) => {
+    events.subscribe('user:created', (id: string) => {
+      this.paradas = this.paradasService.loadParadas();
       this.keyword = id;
+      this.getResultEvent(id);
+
       //   this.keyHasBeedPressed(id);
       // user and time are the same arguments passed in `events.publish(user, time)`
       console.log('Welcome', id);
@@ -52,6 +55,14 @@ export class HomePage {
     // this.getAuthorization();
     //this.decryptedKey();
 
+  }
+
+  getResultEvent(id: string){
+    this.isSearching = false;
+    const results: any[] = this.paradas.filter((item) => item.numeroParada === id);
+    if (results) {
+      this.getInformation(results[0]);
+    }
   }
 
   userPressedCancel() {

@@ -1,5 +1,4 @@
 
-
 <ion-content >
   <ion-item-divider color="primary" class="logo" fixed>Autobús EMT</ion-item-divider>
   <div>
@@ -41,10 +40,8 @@
     <!--<h2 [innerText]="information.nombreParada"></h2>-->
     <!--</div>-->
 
-    <div class="lineasParadas">
+    <div class="lineasParadas" *ngIf="information && information.estimaciones">
       <ion-list *ngFor="let result of information.estimaciones" >
-
-
 
           <span class="numLinea">
             <span [style.background-color]="result.color">{{result.line}}</span>
