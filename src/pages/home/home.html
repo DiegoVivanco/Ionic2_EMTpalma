@@ -1,47 +1,77 @@
 
 
 <ion-content >
-    <ion-item-divider color="primary" class="logo" fixed>Autobús EMT</ion-item-divider>
-<div>
-  <ion-item padding>
-        <ion-input type="text" placeholder="Escribe el número de parada" 
-    		       [(ngModel)]="keyword" 
-		           (ionCancel)="userPressedCancel" 
-		           (keyup)="keyHasBeedPressed($event)">
-		</ion-input>
-  </ion-item>
-</div>
+  <ion-item-divider color="primary" class="logo" fixed>Autobús EMT</ion-item-divider>
+  <div>
+    <ion-item padding>
+      <ion-input type="text" placeholder="Escribe el número de parada"
+                 [(ngModel)]="keyword"
+                 (ionCancel)="userPressedCancel"
+                 (keyup)="keyHasBeedPressed($event)">
+      </ion-input>
+    </ion-item>
+  </div>
 
 
 
-	
-	<ion-list>
-		<button ion-item *ngFor="let result of results" (click)="setData(result)">
-		<!--	<ion-thumbnail item-left>
-				<img [src]="result.artworkUrl100">
-			</ion-thumbnail>
-			<h2 [innerText]="result.trackName"></h2>
-			<h2 *ngIf="result.lenght === 0"> content not founf</h2>
-			<p>{{result.artistName}}</p>
-			<ion-icon item-right [name]="result.kind === 'song' ? 'musical-notes' : 'film'"></ion-icon>
-			<ion-icon item-right person [hidden]="result.kind !== 'song'"></ion-icon> -->
-		    <img item-left class="bus" src="assets/img/bus.png"> 
-			<div item-left class="numeroParada">{{result.numeroParada}}</div>
-            <h2 [innerText]="result.nombreParada"></h2>
-		</button>
-	</ion-list>
 
-	<ion-list *ngIf=" isSearching || keyword == '' " 
-			  [hidden]="paradasConsultadas.length == 0">
-		<ion-item-divider color="primary" class="logo" fixed>Paradas Consultadas</ion-item-divider>
-		<button ion-item *ngFor="let parada of paradasConsultadas">
-		    <img item-left class="bus" src="assets/img/bus.png"> 
-			<div item-left class="numeroParada">{{parada.index}}</div>
-            <h2 [innerText]="parada.name"></h2>
-			<ion-icon  class="eliminar" item-right color="danger" 
-			           name="remove-circle" (click)="removeData(parada.index)">           	
-			</ion-icon>
-		</button>
-	</ion-list>
+  <ion-list>
+    <button ion-item *ngFor="let result of results" (click)="getInformation(result)">
+      <!--	<ion-thumbnail item-left>
+                  <img [src]="result.artworkUrl100">
+              </ion-thumbnail>
+              <h2 [innerText]="result.trackName"></h2>
+              <h2 *ngIf="result.lenght === 0"> content not founf</h2>
+              <p>{{result.artistName}}</p>
+              <ion-icon item-right [name]="result.kind === 'song' ? 'musical-notes' : 'film'"></ion-icon>
+              <ion-icon item-right person [hidden]="result.kind !== 'song'"></ion-icon> -->
+      <img item-left class="bus" src="assets/img/bus.png">
+      <div item-left class="numeroParada">{{result.numeroParada}}</div>
+      <h2 [innerText]="result.nombreParada"></h2>
+    </button>
+  </ion-list>
+
+
+
+  <div class="sectionLineasParada" *ngIf="information != null">
+
+    <!--<div>-->
+    <!--<img item-left class="bus" src="assets/img/bus.png">-->
+    <!--<div item-left class="numeroParada">{{information.numeroParada}}</div>-->
+    <!--<h2 [innerText]="information.nombreParada"></h2>-->
+    <!--</div>-->
+
+    <div class="lineasParadas">
+      <ion-list *ngFor="let result of information.estimaciones" >
+
+
+
+          <span class="numLinea">
+            <span [style.background-color]="result.color">{{result.line}}</span>
+          </span>
+
+        <span class="infoLinea">
+            <span class="nombreLinea" [innerText]="result.vh_first.destino"></span>
+            <span class="primer ">Primer bus en: {{result.vh_first.seconds}}</span>
+            <span class="segundo ">Segundo bus en: {{result.vh_second.seconds}}</span>
+          </span>
+
+      </ion-list>
+    </div>
+  </div>
+
+
+  <ion-list *ngIf=" isSearching || keyword == '' "
+            [hidden]="paradasConsultadas.length == 0">
+    <ion-item-divider color="primary" class="logo" fixed>Paradas Consultadas</ion-item-divider>
+    <button ion-item *ngFor="let parada of paradasConsultadas">
+      <img item-left class="bus" src="assets/img/bus.png">
+      <div item-left class="numeroParada">{{parada.index}}</div>
+      <h2 [innerText]="parada.name"></h2>
+      <ion-icon  class="eliminar" item-right color="danger"
+                 name="remove-circle" (click)="removeData(parada.index)">
+      </ion-icon>
+    </button>
+  </ion-list>
 
 </ion-content>
