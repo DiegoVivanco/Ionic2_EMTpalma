@@ -20,6 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {IonicStorageModule} from '@ionic/storage';
 import { Paradas } from '../providers/paradas';
 import { Lineas } from '../providers/lineas';
+import { ParadasMapa } from '../providers/paradas-mapa';
+
 
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -57,9 +59,11 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     SplashScreen,
     //GoogleMaps,
+    Lineas,
+    ParadasMapa,
     Paradas,
     Geolocation,
-    Lineas,
+
     //Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]

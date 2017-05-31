@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, ModalController, ActionSheetController, Events } from 'ionic-angular'; //ActionSheetController
 //import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
-import { Paradas } from '../../providers/paradas';
+import { ParadasMapa } from '../../providers/paradas-mapa';
 import { HomePage } from '../home/home';
 //import { Nav, Platform } from 'ionic-angular';
 
@@ -24,7 +24,7 @@ export class StopsPage {
   @ViewChild('map') mapElement;
    Coordinates: any;
    watch:any;
-   paradas: Array<any>;
+   paradasMapa;
    tab1Root;
    marker;
    map;
@@ -33,13 +33,14 @@ export class StopsPage {
   constructor(
               public navCtrl: NavController,
               public modalCtrl: ModalController,
-              public paradasService : Paradas,
+              public paradasMapaService: ParadasMapa,
               private geolocation: Geolocation,
               public actionSheetCtrl: ActionSheetController,
               public events: Events)
   {
     this.cluster = L.markerClusterGroup();
-    this.paradas = this.paradasService.loadParadas();
+    this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
+    console.log(this.paradasMapa)
     this.tab1Root = HomePage;
   }
 
@@ -76,15 +77,18 @@ export class StopsPage {
 
 
   showMarkers(){
-    this.paradas.forEach(property => {
+    for (var key in this.paradasMapa) {
+         console.log(key);
+         console.log(this.paradasMapa[key][0] + this.paradasMapa[key][1])
+         if(this.paradasMapa[key][0] !== null){
         let busIcon =  new L.DivIcon({
             className: 'myDivIcon',
             html: '<img class="myDivImage" src="assets/img/bus2.png"/>'+
-            '<div class="myDivNumber">'+property.numeroParada+'</div>'
+            '<div class="myDivNumber">'+key+'</div>'
           });
 
         let popupLink=  '<div>' +
-                     '<p class="name"> '+property.numeroParada+' - '+property.nombreParada+'</p>' +
+                     '<p class="name"> '+key+' - '+this.paradasMapa[key][2]+'</p>' +
 
                       '<span class="routeList small">' +
 
@@ -94,11 +98,12 @@ export class StopsPage {
 
                       '</span>' +
 
-                      '<button class="selectCoords" id="'+property.numeroParada+'" (click)="goToHome('+property+')" >Seleccionar</button>' +
+                      '<button class="selectCoords" id="'+key+'">Seleccionar</button>' +
                   '</div>';
-    this.marker = L.marker([property.latitud, property.longitud], {icon: busIcon}).bindPopup(popupLink);
+    this.marker = L.marker([this.paradasMapa[key][0], this.paradasMapa[key][1]], {icon: busIcon}).bindPopup(popupLink);
     this.cluster.addLayer(this.marker);
-    });
+  }
+    };
 // .on('click', event => this.openPropertyDetail(property));
 //.on('click', event => this.openPropertyDetail(event.target.data));
     this.map.addLayer(this.cluster);
