@@ -21,6 +21,9 @@ page-home {
     z-index: 10;
   }
 
+
+  // estilos aplicados en la información de la parada seleccionada
+
   .sectionLineasParada{
     background-color: #f6f6f6;
     border-top: 1px dotted black;
@@ -31,6 +34,45 @@ page-home {
 
   .lineasParadas{
 
+  }
+
+  .icon{
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background-size: contain;
+    position: relative;
+    top: 6px;
+    margin-right: 3px;
+  }
+
+  .numero{
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #000;
+    text-align: center;
+    padding: 2px 8px;
+    margin-right: 3px;
+    font-weight: bold;
+  }
+
+  .nombre{
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .lineasParadas ul{
+    list-style: none;
+    padding: 0;
+    background-color: white;
+    margin-top: 16px;
+    border: 1px solid #dadada;
+  }
+
+  .listParada{
+    border-bottom: 1px solid #dadada;
+    padding: 20px 15px;
+    margin: 0;
   }
 
   .numLinea{
@@ -54,6 +96,7 @@ page-home {
   .infoLinea{
     width: 80%;
     padding-left: 0;
+    display: inline-block;
   }
 
   .nombreLinea{
@@ -61,6 +104,7 @@ page-home {
     display: block;
     font-size: 15px;
     color: black;
+    font-weight: bold;
   }
 
   .primer{
