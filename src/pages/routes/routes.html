@@ -4,9 +4,9 @@
     <ion-item-divider color="primary" class="logo" fixed>Líneas</ion-item-divider>
 
 	<ion-list>
-		<button ion-item *ngFor="let linea of lineas">
-			<div item-left class="colorParada" [style.background-color]="linea.color">{{linea.linea}}</div>
-            <h2 class="nombreLinea" [innerText]="linea.nombreLinea"></h2>
+		<button ion-item *ngFor="let linea of lineas" (click)="goToDetails(linea)">
+			<div item-left class="colorParada" [style.background-color]="linea.colorfuerte">{{linea.claveLinea}}</div>
+            <h2 class="nombreLinea" [innerText]="linea.nombre"></h2>
 		</button>
 	</ion-list>
 </ion-content>

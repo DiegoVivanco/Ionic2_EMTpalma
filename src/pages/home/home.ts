@@ -40,15 +40,14 @@ export class HomePage {
     this.response = '';
     this.getAllItems();
     this.isSearching = true;
-    console.log(this.paradas);
 
-    events.subscribe('user:created', (id: string) => {
+    events.subscribe('getid', (id: string) => {
       this.paradas = this.paradasService.loadParadas();
       this.getResultEvent(id);
 
       //   this.keyHasBeedPressed(id);
       // user and time are the same arguments passed in `events.publish(user, time)`
-      console.log('Welcome', id);
+
     });
     //this.encrytedKey();
     // this.getAuthorization();
@@ -88,8 +87,6 @@ export class HomePage {
 
   getInformation(result: any) {
     this.information = result;
-    console.log("this.information");
-    console.log(this.information);
     this.setData(result);
     this.results = [];
   }
@@ -102,8 +99,6 @@ export class HomePage {
 
   getData() {
     this.storage.get('myData').then((data) => {
-      console.log(data);
-      console.log(localStorage);
     });
   }
 
@@ -122,7 +117,6 @@ export class HomePage {
           index: key,
         })
       });
-      console.log('paradasConsultadas', this.paradasConsultadas);
     });
   }
 

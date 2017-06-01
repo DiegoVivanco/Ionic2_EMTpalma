@@ -1,5 +1,5 @@
 
-<ion-tabs tabsPlacement="top" color="dark" >
+<ion-tabs tabsPlacement="top" tabsHideOnSubPages="true" color="dark"  id="tabs">
 	<!-- ion tabs -->
   <ion-tab #myNav [root]="tab1Root" (ionSelect)="viewMode()" tabTitle="Paso por parada" tabIcon="emt-paso"></ion-tab>
   <ion-tab [root]="tab2Root" (ionSelect)="viewModeMap()" tabTitle="Paradas" tabIcon="emt-gps"></ion-tab>
@@ -16,7 +16,7 @@
 	  	 <ion-fab-list side="top">
 
 		     <button ion-fab (click)="goToContactPage($event, fab)">
-		         <img src="assets/img/contact2.svg"> 
+		         <img src="assets/img/contact2.svg">
 		     </button>
 	    	 <ion-label class="fablabelContact">Contacto</ion-label >
 

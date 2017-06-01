@@ -1,0 +1,34 @@
+page-line-bus-data {
+
+    .list-md {
+        margin: 45px 0 16px 0;
+    }
+
+    .force-back-button .back-button {
+        display: inline-block;
+    }
+
+	.colorParada{
+		color: white;
+    	font-weight: bold;
+    	width: 35px;
+    	height: 35px;
+    	display: inline-block;
+    	border-radius: 35px;
+    	text-align: center;
+    	line-height: 35px;
+    	font-size: 20px;
+    	float: left;
+    	text-shadow: 1px 1px 5px grey;
+	}
+	.nombreLinea{
+    	font-size: 15px;
+    	display: table-cell;
+    	vertical-align: middle;
+    	width: 85%;
+    	text-align: left;
+        position: absolute;
+        left: 58px;
+        top: -10px;
+	}
+}

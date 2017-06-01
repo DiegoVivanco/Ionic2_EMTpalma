@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 //import { GoogleMaps } from '@ionic-native/google-maps';
 
+import { LineBusData } from '../pages/line-bus-data/line-bus-data'
 import { ContactPage } from '../pages/contact/contact';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
@@ -35,12 +36,13 @@ import { Geolocation } from '@ionic-native/geolocation';
     WarningsPage,
     ContactPage,
     SettingsPage,
+    LineBusData,
     TabsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { tabsHideOnSubPages: true }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -53,6 +55,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     WarningsPage,
     ContactPage,
     SettingsPage,
+    LineBusData,
     TabsPage
   ],
   providers: [

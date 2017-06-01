@@ -1,0 +1,33 @@
+<ion-header  *ngIf="lineaSeleccionada">
+  <ion-navbar class="force-back-button">
+    <ion-title>
+		<div item-left class="colorParada" [style.background-color]="lineaSeleccionada.colorfuerte">{{lineaSeleccionada.claveLinea}}</div>
+        <h2 class="nombreLinea" [innerText]="lineaSeleccionada.nombre"></h2>
+    </ion-title>
+  </ion-navbar>
+</ion-header> 
+
+<!--<ion-header>
+
+  <ion-navbar >
+    <ion-title>that's settings page </ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content padding *ngIf="trayectos">
+  <ion-list>
+
+         <div *ngFor="let trayecto of trayectos" text-wrap>
+            <ion-item>
+            {{trayecto.nombre}} sentido hacia {{trayecto.destino}}
+            </ion-item>
+
+            <ion-item>
+            {{trayecto.nombre}} sentido hacia {{trayecto.origen}}
+            </ion-item>
+        </div>
+
+  </ion-list>
+</ion-content>

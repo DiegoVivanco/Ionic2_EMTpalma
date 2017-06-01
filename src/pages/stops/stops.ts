@@ -40,7 +40,6 @@ export class StopsPage {
   {
     this.cluster = L.markerClusterGroup();
     this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
-    console.log(this.paradasMapa)
     this.tab1Root = HomePage;
   }
 
@@ -50,7 +49,6 @@ export class StopsPage {
 
     this.watch = this.geolocation.watchPosition(options)
       .subscribe((position: Geoposition) => {
-        console.log(position);
         this.Coordinates = position.coords;
       });
 
@@ -69,7 +67,7 @@ export class StopsPage {
     const self = <StopsPage> this;
     jQuery('#map').on('click', '.selectCoords', function(e) {
       self.navCtrl.parent.select(0);
-      self.events.publish('user:created', e.target.id);
+      self.events.publish('getid', e.target.id);
     });
 
   }
