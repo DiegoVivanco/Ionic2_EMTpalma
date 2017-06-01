@@ -22,21 +22,21 @@ import * as jQuery  from 'jquery'
 export class StopsPage {
   cluster;
   @ViewChild('map') mapElement;
-   Coordinates: any;
-   watch:any;
-   paradasMapa;
-   tab1Root;
-   marker;
-   map;
+  Coordinates: any;
+  watch:any;
+  paradasMapa;
+  tab1Root;
+  marker;
+  map;
 
 
   constructor(
-              public navCtrl: NavController,
-              public modalCtrl: ModalController,
-              public paradasMapaService: ParadasMapa,
-              private geolocation: Geolocation,
-              public actionSheetCtrl: ActionSheetController,
-              public events: Events)
+    public navCtrl: NavController,
+    public modalCtrl: ModalController,
+    public paradasMapaService: ParadasMapa,
+    private geolocation: Geolocation,
+    public actionSheetCtrl: ActionSheetController,
+    public events: Events)
   {
     this.cluster = L.markerClusterGroup();
     this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
@@ -45,14 +45,14 @@ export class StopsPage {
   }
 
   ionViewDidLoad() {
-      /*Initializing geolocation*/
+    /*Initializing geolocation*/
     let options = { frequency: 3000, enableHighAccuracy: true };
 
     this.watch = this.geolocation.watchPosition(options)
-    .subscribe((position: Geoposition) => {
-      console.log(position);
-      this.Coordinates = position.coords;
-    });
+      .subscribe((position: Geoposition) => {
+        console.log(position);
+        this.Coordinates = position.coords;
+      });
 
   }
 
@@ -67,185 +67,182 @@ export class StopsPage {
     this.showMarkers();
 
     const self = <StopsPage> this;
-   jQuery('#map').on('click', '.selectCoords', function(e) {
-     self.navCtrl.parent.select(0);
-     self.events.publish('user:created', e.target.id);
-  });
+    jQuery('#map').on('click', '.selectCoords', function(e) {
+      self.navCtrl.parent.select(0);
+      self.events.publish('user:created', e.target.id);
+    });
 
-}
+  }
 
 
 
   showMarkers(){
     for (var key in this.paradasMapa) {
-         console.log(key);
-         console.log(this.paradasMapa[key][0] + this.paradasMapa[key][1])
-         if(this.paradasMapa[key][0] !== null){
+      if(this.paradasMapa[key][0] !== null){
         let busIcon =  new L.DivIcon({
-            className: 'myDivIcon',
-            html: '<img class="myDivImage" src="assets/img/bus2.png"/>'+
-            '<div class="myDivNumber">'+key+'</div>'
-          });
+          className: 'myDivIcon',
+          html: '<img class="myDivImage" src="assets/img/bus2.png"/>'+
+          '<div class="myDivNumber">'+key+'</div>'
+        });
 
         let popupLink=  '<div>' +
-                     '<p class="name"> '+key+' - '+this.paradasMapa[key][2]+'</p>' +
+          '<p class="name"> '+key+' - '+this.paradasMapa[key][2]+'</p>' +
 
-                      '<span class="routeList small">' +
+          '<span class="routeList small">' +
 
-                          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(114, 192, 216);">5</a>' +
+          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(114, 192, 216);">5</a>' +
 
-                          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(238, 170, 96);">46</a>' +
+          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(238, 170, 96);">46</a>' +
 
-                      '</span>' +
+          '</span>' +
 
-                      '<button class="selectCoords" id="'+key+'">Seleccionar</button>' +
-                  '</div>';
-    this.marker = L.marker([this.paradasMapa[key][0], this.paradasMapa[key][1]], {icon: busIcon}).bindPopup(popupLink);
-    this.cluster.addLayer(this.marker);
-  }
+          '<button class="selectCoords" id="'+key+'">Seleccionar</button>' +
+          '</div>';
+        this.marker = L.marker([this.paradasMapa[key][0], this.paradasMapa[key][1]], {icon: busIcon}).bindPopup(popupLink);
+        this.cluster.addLayer(this.marker);
+      }
     };
-// .on('click', event => this.openPropertyDetail(property));
-//.on('click', event => this.openPropertyDetail(event.target.data));
+
     this.map.addLayer(this.cluster);
   }
-
-  openPropertyDetail(property: any){
-    console.log(this.marker.getPopup());
-    console.log(property);
-        let actionSheet = this.actionSheetCtrl.create({
-        title: 'Parada ' + property.numeroParada + ' - ' + property.nombreParada,
-        buttons: [
-          {
-            text: 'Paso por parada',
-            icon: 'bus',
-            role: 'Paso por parada',
-            handler: () => {
-              console.log('Destructive clicked');
-            }
-          },
-          {
-            text: 'Añadir a favoritos',
-            icon: 'star',
-            handler: () => {
-              console.log('Archive clicked');
-            }
-          },
-          {
-            text: 'Cancelar',
-            icon: 'close',
-            role: 'Cancelar',
-            handler: () => {
-              this.closePopUp();
-            }
-          }
-        ]
-      });
-
-      actionSheet.present();
-  }
-
-
-closePopUp(){
-  console.log('Cancel clicked');
-  if(jQuery(".leaflet-popup-close-button")){
-      jQuery(".leaflet-popup-close-button")[0].click();
-    }
 }
 
 
-}
+//   openPropertyDetail(property: any){
+//     console.log(this.marker.getPopup());
+//     console.log(property);
+//         let actionSheet = this.actionSheetCtrl.create({
+//         title: 'Parada ' + property.numeroParada + ' - ' + property.nombreParada,
+//         buttons: [
+//           {
+//             text: 'Paso por parada',
+//             icon: 'bus',
+//             role: 'Paso por parada',
+//             handler: () => {
+//               console.log('Destructive clicked');
+//             }
+//           },
+//           {
+//             text: 'Añadir a favoritos',
+//             icon: 'star',
+//             handler: () => {
+//               console.log('Archive clicked');
+//             }
+//           },
+//           {
+//             text: 'Cancelar',
+//             icon: 'close',
+//             role: 'Cancelar',
+//             handler: () => {
+//               this.closePopUp();
+//             }
+//           }
+//         ]
+//       });
+//
+//       actionSheet.present();
+//   }
+//
+//
+// closePopUp(){
+//   console.log('Cancel clicked');
+//   if(jQuery(".leaflet-popup-close-button")){
+//       jQuery(".leaflet-popup-close-button")[0].click();
+//     }
+// }
 
- //   executemap()39.5717899
- //
- //     /*Initializing Map*/
- //    mapboxgl.accessToken = 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA';
- //    this.map = new mapboxgl.Map({
- //       style: 'mapbox://styles/mapbox/streets-v9',
- //       center: [this.Coordinates.longitude, this.Coordinates.latitude],
- //       minZoom: 12,
- //       container: 'map'
- //     });
- //
- //   this.map.on('load', function() {
- //   this.map.addLayer({
- //    'id': '3d-buildings',
- //    'source': 'composite',
- //    'source-layer': 'building',
- //    'filter': ['==', 'extrude', 'true'],
- //    'type': 'fill-extrusion',
- //    'maxzoom': 15,
- //    'paint': {
- //     'fill-extrusion-color': '#aaa',
- //     'fill-extrusion-height': {
- //      'type': 'identity',
- //      'property': 'height'
- //     },
- //     'fill-extrusion-base': {
- //      'type': 'identity',
- //      'property': 'min_height'
- //     },
- //     'fill-extrusion-opacity': .6
- //    }
- //   });
- //  });
- // }
+
+//   executemap()39.5717899
+//
+//     /*Initializing Map*/
+//    mapboxgl.accessToken = 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA';
+//    this.map = new mapboxgl.Map({
+//       style: 'mapbox://styles/mapbox/streets-v9',
+//       center: [this.Coordinates.longitude, this.Coordinates.latitude],
+//       minZoom: 12,
+//       container: 'map'
+//     });
+//
+//   this.map.on('load', function() {
+//   this.map.addLayer({
+//    'id': '3d-buildings',
+//    'source': 'composite',
+//    'source-layer': 'building',
+//    'filter': ['==', 'extrude', 'true'],
+//    'type': 'fill-extrusion',
+//    'maxzoom': 15,
+//    'paint': {
+//     'fill-extrusion-color': '#aaa',
+//     'fill-extrusion-height': {
+//      'type': 'identity',
+//      'property': 'height'
+//     },
+//     'fill-extrusion-base': {
+//      'type': 'identity',
+//      'property': 'min_height'
+//     },
+//     'fill-extrusion-opacity': .6
+//    }
+//   });
+//  });
+// }
 
 
 
 
- // GOOGLE MAPS
- /* addInfoWindowToMarker(marker) {
-    var infoWindowContent = '<div id="content">' +
-        '<h1 id="firstHeading" class="firstHeading">' +
-             marker.title +
-         '</h1>' +
-          '<p align="center"><button id="x"> Click Me! </button></p>' +
-         '</div>';
+// GOOGLE MAPS
+/* addInfoWindowToMarker(marker) {
+ var infoWindowContent = '<div id="content">' +
+ '<h1 id="firstHeading" class="firstHeading">' +
+ marker.title +
+ '</h1>' +
+ '<p align="center"><button id="x"> Click Me! </button></p>' +
+ '</div>';
 
-    var infoWindow = new google.maps.InfoWindow({
-      content: infoWindowContent
-    });
+ var infoWindow = new google.maps.InfoWindow({
+ content: infoWindowContent
+ });
 
-    marker.addListener('click', () => {
-      this.closeAllInfoWindows();
-      infoWindow.open(this.map, marker);
-    });
-    this.infoWindows.push(infoWindow);
-  }
+ marker.addListener('click', () => {
+ this.closeAllInfoWindows();
+ infoWindow.open(this.map, marker);
+ });
+ this.infoWindows.push(infoWindow);
+ }
 
-  closeAllInfoWindows() {
-    for(let window of this.infoWindows) {
-      window.close();
-    }
-  }
+ closeAllInfoWindows() {
+ for(let window of this.infoWindows) {
+ window.close();
+ }
+ }
 
-  ionViewDidLoad(){
-  	this.initMap();
-  }
+ ionViewDidLoad(){
+ this.initMap();
+ }
 
-  initMap(){
-  	let latLng = new google.maps.LatLng(39.5830906, 2.6540206);
+ initMap(){
+ let latLng = new google.maps.LatLng(39.5830906, 2.6540206);
 
-  	let mapOptions = {
-  		center: latLng,
-  		zoom: 12,
-  		mapTypeId: google.maps.MapTypeId.ROADMAP
-  	};
+ let mapOptions = {
+ center: latLng,
+ zoom: 12,
+ mapTypeId: google.maps.MapTypeId.ROADMAP
+ };
 
-  	this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+ this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-    let marker = new google.maps.Marker({
-      position: new google.maps.LatLng(39.5748641, 2.6449896),
-      map: this.map,
-      title: 'test sobre marks map'
-    });
+ let marker = new google.maps.Marker({
+ position: new google.maps.LatLng(39.5748641, 2.6449896),
+ map: this.map,
+ title: 'test sobre marks map'
+ });
 
-    marker.setMap(this.map);
-    this.addInfoWindowToMarker(marker);
+ marker.setMap(this.map);
+ this.addInfoWindowToMarker(marker);
 
-    google.maps.event.addListener(this.map, "click", () => {
-      this.closeAllInfoWindows();
+ google.maps.event.addListener(this.map, "click", () => {
+ this.closeAllInfoWindows();
 
-      });
-    }*/
+ });
+ }*/
 //}

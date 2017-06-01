@@ -1,6 +1,10 @@
-
 <ion-content >
+
+  <!-- Etiquetas html que muestra el header-->
+
   <ion-item-divider color="primary" class="logo" fixed>Autobús EMT</ion-item-divider>
+
+  <!-- Etiquetas html que muestra la barra de búsqueda-->
   <div>
     <ion-item padding>
       <ion-input type="text" placeholder="Escribe el número de parada"
@@ -13,7 +17,7 @@
 
 
 
-
+  <!-- Etiquetas html que muestra los resultados de la paradas-->
   <ion-list>
     <button ion-item *ngFor="let result of results" (click)="getInformation(result)">
       <!--	<ion-thumbnail item-left>
@@ -30,38 +34,44 @@
     </button>
   </ion-list>
 
+  test: {{information}}
 
-
-  <div class="sectionLineasParada" *ngIf="information != null">
-
-    <!--<div>-->
-    <!--<img item-left class="bus" src="assets/img/bus.png">-->
-    <!--<div item-left class="numeroParada">{{information.numeroParada}}</div>-->
-    <!--<h2 [innerText]="information.nombreParada"></h2>-->
-    <!--</div>-->
+  <!-- Etiquetas html que muestra la información de la parada seleccionada-->
+  <div class="sectionLineasParada" *ngIf="information != ''">
 
     <div class="lineasParadas" *ngIf="information && information.estimaciones">
-      <ion-list *ngFor="let result of information.estimaciones" >
+
+      <p>
+        <img item-left class="icon" src="assets/img/bus.png">
+        <span item-left class="numero">{{information.numeroParada}}</span>
+        <span class="nombre"[innerText]="information.nombreParada"></span>
+      </p>
+
+      <ul>
+        <ion-list class="listParada" *ngFor="let result of information.estimaciones" >
 
           <span class="numLinea">
             <span [style.background-color]="result.color">{{result.line}}</span>
           </span>
 
-        <span class="infoLinea">
+          <span class="infoLinea">
             <span class="nombreLinea" [innerText]="result.vh_first.destino"></span>
             <span class="primer ">Primer bus en: {{result.vh_first.seconds}}</span>
             <span class="segundo ">Segundo bus en: {{result.vh_second.seconds}}</span>
           </span>
 
-      </ion-list>
+        </ion-list>
+      </ul>
+
     </div>
   </div>
 
+  <!-- Etiquetas html que muestra la información de las paradas consultadas-->
 
   <ion-list *ngIf=" isSearching || keyword == '' "
             [hidden]="paradasConsultadas.length == 0">
     <ion-item-divider color="primary" class="logo" fixed>Paradas Consultadas</ion-item-divider>
-    <button ion-item *ngFor="let parada of paradasConsultadas">
+    <button ion-item *ngFor="let parada of paradasConsultadas" (click)="getResultEvent(parada.index)">
       <img item-left class="bus" src="assets/img/bus.png">
       <div item-left class="numeroParada">{{parada.index}}</div>
       <h2 [innerText]="parada.name"></h2>

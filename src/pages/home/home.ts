@@ -44,7 +44,6 @@ export class HomePage {
 
     events.subscribe('user:created', (id: string) => {
       this.paradas = this.paradasService.loadParadas();
-      this.keyword = id;
       this.getResultEvent(id);
 
       //   this.keyHasBeedPressed(id);
@@ -58,6 +57,7 @@ export class HomePage {
   }
 
   getResultEvent(id: string){
+    this.keyword = id;
     this.isSearching = false;
     const results: any[] = this.paradas.filter((item) => item.numeroParada === id);
     if (results) {
