@@ -12,22 +12,41 @@
   <ion-navbar >
     <ion-title>that's settings page </ion-title>
   </ion-navbar>
-
+[hidden]="trayectoCircular.length == 0"
 </ion-header>-->
 
 
-<ion-content padding *ngIf="trayectos">
-  <ion-list>
+<ion-content padding >
+
+  <ion-list *ngIf="trayectosLength > 1">
 
          <div *ngFor="let trayecto of trayectos" text-wrap>
             <ion-item>
+            <ion-icon item-left name="arrow-round-forward">
+            </ion-icon>
             {{trayecto.nombre}} sentido hacia {{trayecto.destino}}
             </ion-item>
 
             <ion-item>
+            <ion-icon item-left name="arrow-round-back">
+            </ion-icon>
             {{trayecto.nombre}} sentido hacia {{trayecto.origen}}
             </ion-item>
         </div>
 
   </ion-list>
+
+   <ion-list *ngIf="trayectosLength == 1">
+         <div text-wrap>
+            <ion-item>
+            <ion-icon item-left name="repeat">
+            </ion-icon>
+            	Trayecto circular			
+            </ion-item>
+
+        </div>
+
+  </ion-list>
 </ion-content>
+
+

@@ -1,7 +1,14 @@
 page-line-bus-data {
 
+.item-md ion-icon[item-left], .item-md ion-icon[item-right] {
+    margin-top: 11px;
+    margin-bottom: 10px;
+    margin-left: -18px;
+    margin-right: -18px;
+}
+
     .list-md {
-        margin: 45px 0 16px 0;
+        margin: -14px 0 16px 0;
     }
 
     .force-back-button .back-button {

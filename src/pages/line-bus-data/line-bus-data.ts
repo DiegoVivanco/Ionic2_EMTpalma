@@ -16,16 +16,21 @@ export class LineBusData {
 
 	lineaSeleccionada;
 	trayectos;
+	trayectosLength;
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
   			  public events: Events) {
+  		this.lineaSeleccionada = [];
+  		this.trayectos = [];
+  		this.trayectosLength = 0;
+
     	this.events.subscribe('getlinea', (linea) => {
     		this.lineaSeleccionada = linea;
-    		console.log(this.lineaSeleccionada);
 
     		this.trayectos = this.lineaSeleccionada.trayectos;
-    	    console.log(this.trayectos);
+    	    this.trayectosLength = Object.keys(this.trayectos).length
+
     });
 
 
