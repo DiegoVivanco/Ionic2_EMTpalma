@@ -16,14 +16,20 @@ export class LineBusData {
 
 	lineaSeleccionada;
 	trayectos;
+	frecuencias;
 	trayectosLength;
+	shownGroupForward;
+	shownGroupBack;
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
   			  public events: Events) {
   		this.lineaSeleccionada = [];
   		this.trayectos = [];
+  		this.frecuencias = []
   		this.trayectosLength = 0;
+  		this.shownGroupForward = null;
+  		this.shownGroupBack = null;
 
     	this.events.subscribe('getlinea', (linea) => {
     		this.lineaSeleccionada = linea;
@@ -35,5 +41,37 @@ export class LineBusData {
 
 
     }
+
+    toggleGroupForward(group: any){
+    	this.frecuencias = this.trayectos[group].frecuencias[0];
+    	console.log(group)
+    	console.log(this.frecuencias)
+    	if(this.isGroupShownForward(group)){
+    		this.shownGroupForward = null;
+    	}else {
+    		this.shownGroupForward = group;
+    	}
+    }
+
+	isGroupShownForward(group: any){
+		return this.shownGroupForward === group;
+
+	}
+
+	toggleGroupBack(group: any){
+		this.frecuencias = this.trayectos[group].frecuencias[1];
+    	console.log(group)
+    	console.log(this.frecuencias)
+    	if(this.isGroupShownBack(group)){
+    		this.shownGroupBack = null;
+    	}else {
+    		this.shownGroupBack = group;
+    	}
+    }
+
+	isGroupShownBack(group: any){
+		return this.shownGroupBack === group;
+
+	}
 
 }

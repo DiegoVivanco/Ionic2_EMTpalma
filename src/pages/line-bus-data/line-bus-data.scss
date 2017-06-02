@@ -1,10 +1,14 @@
 page-line-bus-data {
 
-.item-md ion-icon[item-left], .item-md ion-icon[item-right] {
+.item-md ion-icon[item-left]{
+    position: absolute;
+    margin-left: -15px;
+}
+
+ .item-md ion-icon[item-right] {
     margin-top: 11px;
     margin-bottom: 10px;
-    margin-left: -18px;
-    margin-right: -18px;
+    margin-right: 121px;
 }
 
     .list-md {
@@ -38,4 +42,12 @@ page-line-bus-data {
         left: 58px;
         top: -10px;
 	}
+
+    .sectionFrecuencias{
+        background-color: #b7b2b2;
+        border-top: 1px dotted black;
+        padding: 15px;
+        text-align: left;
+        margin: 0;
+    }
 }
