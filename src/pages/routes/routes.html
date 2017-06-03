@@ -1,10 +1,4 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic 2 Accordion
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content>
     <ion-item-divider color="primary" class="logo" fixed>Líneas</ion-item-divider>
@@ -18,7 +12,7 @@
             <span *ngIf="linea.routes == 1">{{linea.routes}} route</span>
 
     	    <ion-icon color="primary" item-right 
-        		[name]="isGroupShown(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
+        		[name]="isGroupShown(i) ? 'ios-remove-circle-outline' : 'ios-add-circle-outline' ">
 	        </ion-icon>
 
 	        <div class="sectionRoutes" *ngIf="isGroupShown(i)">

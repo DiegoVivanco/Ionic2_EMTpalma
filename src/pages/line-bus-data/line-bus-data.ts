@@ -38,11 +38,11 @@ export class LineBusData {
   		this.shownGroupBack = null;
 
 
-    	this.events.subscribe('getlinea', (linea) => {
-    		this.lineaSeleccionada = linea;
+    	this.events.subscribe('getlinea', (trayecto) => {
+    		this.lineaSeleccionada = trayecto;
 
-    		this.trayectos = this.lineaSeleccionada.trayectos;
-    	    this.trayectosLength = Object.keys(this.trayectos).length
+    		//this.trayectos = this.lineaSeleccionada.trayectos;
+    	   // this.trayectosLength = Object.keys(this.trayectos).length
 
     });
 

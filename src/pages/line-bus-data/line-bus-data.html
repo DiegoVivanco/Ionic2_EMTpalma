@@ -2,7 +2,7 @@
   <ion-navbar class="force-back-button">
     <ion-title>
 		<div item-left class="colorParada" [style.background-color]="lineaSeleccionada.colorfuerte">{{lineaSeleccionada.claveLinea}}</div>
-        <h2 class="nombreLinea" [innerText]="lineaSeleccionada.nombre"></h2>
+        <h2 class="nombreLinea" [innerText]="lineaSeleccionada.nombreLinea"></h2>
     </ion-title>
   </ion-navbar>
 </ion-header> 
@@ -18,7 +18,7 @@
 
 <ion-content padding >
 
-  <ion-list *ngIf="trayectosLength > 1">
+  <!-- <ion-list *ngIf="trayectosLength > 1">
 
     <div *ngFor="let trayecto of trayectos; let i=index" text-wrap>
         <ion-item (click)="toggleGroupForward(i)" [ngClass]="{active: isGroupShownForward(i)}" >
@@ -128,7 +128,7 @@
 
         </div>
 
-  </ion-list>
+  </ion-list> -->
 </ion-content>
 
 

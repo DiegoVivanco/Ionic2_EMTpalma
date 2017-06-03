@@ -32,6 +32,8 @@ export class Lineas {
     "routes": 3,
     "trayectos": [
       {
+        "nombreLinea": "Aeroport-Ciutat-Port",
+        "colorfuerte": "rgb(68, 116, 63)",
         "claveLinea": 1,
         "claveTrayecto": 1,
         "principal": true,
@@ -2195,6 +2197,8 @@ export class Lineas {
         "destinoDe": "Port"
       },
       {
+        "nombreLinea": "Aeroport-Ciutat-Port",
+        "colorfuerte": "rgb(68, 116, 63)",
         "claveLinea": 1,
         "claveTrayecto": 2,
         "principal": false,
@@ -4402,6 +4406,8 @@ export class Lineas {
         "destinoDe": "Port"
       },
       {
+        "nombreLinea": "Aeroport-Ciutat-Port",
+        "colorfuerte": "rgb(68, 116, 63)",
         "claveLinea": 1,
         "claveTrayecto": 3,
         "principal": false,
@@ -6728,6 +6734,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Circumval·lació Centre Històric",
         "claveLinea": 2,
         "claveTrayecto": 1,
         "principal": true,
@@ -7317,6 +7324,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Pont d'Inca - Illetes",
         "claveLinea": 3,
         "claveTrayecto": 1,
         "principal": true,
@@ -10591,6 +10599,7 @@ export class Lineas {
         "destinoDe": "Illetes"
       },
       {
+        "nombreLinea": "Pont d'Inca - Illetes",
         "claveLinea": 3,
         "claveTrayecto": 2,
         "principal": false,
@@ -13521,6 +13530,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Es Rafal Nou-Son Dureta",
         "claveLinea": 5,
         "claveTrayecto": 1,
         "principal": true,
@@ -15347,6 +15357,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Nou Llevant - Son Espases",
         "claveLinea": 6,
         "claveTrayecto": 1,
         "principal": true,
@@ -17205,6 +17216,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Son Rapinya - Son Gotleu",
         "claveLinea": 7,
         "claveTrayecto": 2,
         "principal": false,
@@ -19563,6 +19575,7 @@ export class Lineas {
         "destinoDe": "Son Vida"
       },
       {
+        "nombreLinea": "Son Rapinya - Son Gotleu",
         "claveLinea": 7,
         "claveTrayecto": 1,
         "principal": true,
@@ -21532,6 +21545,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Roca",
         "claveLinea": 8,
         "claveTrayecto": 1,
         "principal": true,
@@ -22642,6 +22656,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Son Espanyol",
         "claveLinea": 9,
         "claveTrayecto": 2,
         "principal": false,
@@ -24469,6 +24484,7 @@ export class Lineas {
         "destinoDe": "Universitat"
       },
       {
+        "nombreLinea": "Son Espanyol",
         "claveLinea": 9,
         "claveTrayecto": 1,
         "principal": true,
@@ -25996,6 +26012,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Cladera - Sa Indioteria",
         "claveLinea": 10,
         "claveTrayecto": 1,
         "principal": true,
@@ -27372,6 +27389,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Sa Indioteria",
         "claveLinea": 11,
         "claveTrayecto": 1,
         "principal": true,
@@ -29128,6 +29146,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Sardina - Nou Llevant",
         "claveLinea": 12,
         "claveTrayecto": 1,
         "principal": true,
@@ -30846,6 +30865,7 @@ export class Lineas {
     "routes": 5,
     "trayectos": [
       {
+        "nombreLinea": "Son Ferriol",
         "claveLinea": 14,
         "claveTrayecto": 1,
         "principal": true,
@@ -32615,6 +32635,7 @@ export class Lineas {
         "destinoDe": "Sant Jordi"
       },
       {
+        "nombreLinea": "Son Ferriol",
         "claveLinea": 14,
         "claveTrayecto": 5,
         "principal": false,
@@ -34846,6 +34867,7 @@ export class Lineas {
         "destinoDe": "Sant Jordi"
       },
       {
+        "nombreLinea": "Son Ferriol",
         "claveLinea": 14,
         "claveTrayecto": 2,
         "principal": false,
@@ -36660,6 +36682,7 @@ export class Lineas {
         "destinoDe": "S'Hostalot"
       },
       {
+        "nombreLinea": "Son Ferriol",
         "claveLinea": 14,
         "claveTrayecto": 4,
         "principal": false,
@@ -38656,6 +38679,7 @@ export class Lineas {
         "destinoDe": "Sant Jordi"
       },
       {
+        "nombreLinea": "Son Ferriol",
         "claveLinea": 14,
         "claveTrayecto": 3,
         "principal": false,
@@ -40665,6 +40689,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Platja de Palma - Plaça de la Reina",
         "claveLinea": 15,
         "claveTrayecto": 1,
         "principal": true,
@@ -43815,6 +43840,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Establiments-Son Fuster",
         "claveLinea": 16,
         "claveTrayecto": 1,
         "principal": true,
@@ -46086,6 +46112,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Riera",
         "claveLinea": 18,
         "claveTrayecto": 1,
         "principal": true,
@@ -47464,6 +47491,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Universitat",
         "claveLinea": 19,
         "claveTrayecto": 1,
         "principal": true,
@@ -49279,6 +49307,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Sant Agustí - Son Espases",
         "claveLinea": 20,
         "claveTrayecto": 1,
         "principal": true,
@@ -52003,6 +52032,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "S'Arenal - Aeroport",
         "claveLinea": 21,
         "claveTrayecto": 1,
         "principal": true,
@@ -53803,6 +53833,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Palma-S'Arenal-Cala Blava",
         "claveLinea": 23,
         "claveTrayecto": 2,
         "principal": false,
@@ -56621,6 +56652,7 @@ export class Lineas {
         "destinoDe": "Cala Blava"
       },
       {
+        "nombreLinea": "Palma-S'Arenal-Cala Blava",
         "claveLinea": 23,
         "claveTrayecto": 1,
         "principal": true,
@@ -59137,6 +59169,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Llàtzer-Son Hugo",
         "claveLinea": 24,
         "claveTrayecto": 1,
         "principal": true,
@@ -61236,6 +61269,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Platja de Palma Exprés",
         "claveLinea": 25,
         "claveTrayecto": 1,
         "principal": true,
@@ -63450,6 +63484,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Son Llàtzer Circular",
         "claveLinea": 28,
         "claveTrayecto": 1,
         "principal": true,
@@ -67200,6 +67235,7 @@ export class Lineas {
         "destinoDe": "Son Llàtzer"
       },
       {
+        "nombreLinea": "Son Llàtzer Circular",
         "claveLinea": 28,
         "claveTrayecto": 2,
         "principal": false,
@@ -70239,6 +70275,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Circular Son Espases",
         "claveLinea": 29,
         "claveTrayecto": 2,
         "principal": false,
@@ -70365,6 +70402,7 @@ export class Lineas {
         "destinoDe": "Son Espases"
       },
       {
+        "nombreLinea": "Circular Son Espases",
         "claveLinea": 29,
         "claveTrayecto": 1,
         "principal": true,
@@ -72056,6 +72094,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Sant Joan de Dèu",
         "claveLinea": 30,
         "claveTrayecto": 1,
         "principal": true,
@@ -73925,6 +73964,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Palma-Sant Jordi-S'Arenal",
         "claveLinea": 31,
         "claveTrayecto": 1,
         "principal": true,
@@ -76778,6 +76818,7 @@ export class Lineas {
         "destinoDe": "Sant Jordi"
       },
       {
+        "nombreLinea": "Palma-Sant Jordi-S'Arenal",
         "claveLinea": 31,
         "claveTrayecto": 2,
         "principal": false,
@@ -80254,6 +80295,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Espases",
         "claveLinea": 33,
         "claveTrayecto": 1,
         "principal": true,
@@ -81199,6 +81241,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Son Espases-Es Rafal",
         "claveLinea": 34,
         "claveTrayecto": 1,
         "principal": true,
@@ -83015,6 +83058,7 @@ export class Lineas {
     "routes": 1,
     "trayectos": [
       {
+        "nombreLinea": "Bus de Nit",
         "claveLinea": 41,
         "claveTrayecto": 1,
         "principal": true,
@@ -84104,6 +84148,7 @@ export class Lineas {
     "routes": 2,
     "trayectos": [
       {
+        "nombreLinea": "Gènova - Sant Agustí -Palma",
         "claveLinea": 46,
         "claveTrayecto": 1,
         "principal": true,
@@ -86457,6 +86502,7 @@ export class Lineas {
         "destinoDe": "Gènova"
       },
       {
+        "nombreLinea": "Gènova - Sant Agustí -Palma",
         "claveLinea": 46,
         "claveTrayecto": 2,
         "principal": false,

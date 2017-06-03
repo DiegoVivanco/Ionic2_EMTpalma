@@ -59,13 +59,13 @@ export class RoutesPage {
 
   }
 
-  goToRoute(event: any, linea: any){
+  goToRoute(event: any, trayecto: any){
     event.stopPropagation();
-    console.log(linea);
+    console.log(trayecto);
 
-    /*this.navCtrl.push(this.lineBusData, linea).then(()=>{
-      this.events.publish('getlinea', linea)
-    });*/
+    this.navCtrl.push(this.lineBusData, trayecto).then(()=>{
+      this.events.publish('getlinea', trayecto)
+    });
   }
 
 }
