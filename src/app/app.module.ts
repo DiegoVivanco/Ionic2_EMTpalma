@@ -5,7 +5,10 @@ import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { GoogleMaps } from '@ionic-native/google-maps';
 
-import { LineBusData } from '../pages/line-bus-data/line-bus-data'
+import { LineBusData } from '../pages/line-bus-data/line-bus-data';
+import { RouteForwardBus } from '../pages/route-forward-bus/route-forward-bus';
+import { RouteBackBus } from '../pages/route-back-bus/route-back-bus';
+
 import { ContactPage } from '../pages/contact/contact';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
@@ -37,6 +40,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     ContactPage,
     SettingsPage,
     LineBusData,
+    RouteForwardBus,
+    RouteBackBus,
     TabsPage
   ],
   imports: [
@@ -56,6 +61,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     ContactPage,
     SettingsPage,
     LineBusData,
+    RouteForwardBus,
+    RouteBackBus,
     TabsPage
   ],
   providers: [

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 //import * as jqueryUI  from 'jquery-ui'
-
+import { RouteForwardBus } from '../route-forward-bus/route-forward-bus';
+import { RouteBackBus } from '../route-back-bus/route-back-bus';
 /**
  * Generated class for the LineBusData page.
  *
@@ -15,6 +16,8 @@ import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 })
 export class LineBusData {
 
+  tab1Root = RouteForwardBus;
+  tab2Root = RouteBackBus;
 	lineaSeleccionada;
 	trayectos;
 	frecuencias;
