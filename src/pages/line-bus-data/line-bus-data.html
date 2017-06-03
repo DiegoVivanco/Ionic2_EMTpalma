@@ -28,27 +28,46 @@
 	            <ion-icon color="success" item-right 
 	            		[name]="isGroupShownForward(i) ? 'arrow-dropdown' : 'arrow-dropright'">
 	            </ion-icon>
+            </div>
+
+            <div class="leafletmap" id="leafletmap" #leafletmap *ngIf="isGroupShownForward(i)">
+            	
             </div>        
 
 	        <div class="sectionFrecuencias" *ngIf="isGroupShownForward(i)">
-	        	<h2>
+
+        		<h2>
 	            	<ion-icon item-left name="time"></ion-icon>
 	            	<strong>Frecuencias</strong>
 	        	</h2>
 
-	        	<div>
-	        		<span>
-	        			<ion-icon item-left name="calendar"></ion-icon>
-	            		<span>{{frecuencias.nombreEs}}</span>
-	        		</span>
-	        		<span></span>
-	        		<span></span>
-	        		información frecuencia de luneas a sábados	      
-        		</div>
+	        	<div *ngIf="frecuenciasForward">
+		        	<div *ngFor="let frecuenciaForward of frecuenciasForward">
+		        		<span>
+		        			<ion-icon item-left name="calendar"></ion-icon>
+		            		<span>{{frecuenciaForward.nombreEs}}</span>
+		        		</span>
 
-	        	<div>
-	        		información frecuencia de festivos
-	        	</div>	        
+		        		<span *ngIf="frecuenciaForward.mananas > 0">
+		        			<span>
+		        				<strong>Mañanas:</strong> {{frecuenciaForward.mananas}} minutos
+		        			</span>
+		        			<span>
+		        				<strong>Tardes:</strong> {{frecuenciaForward.tardes}} minutos
+		        			</span>		        			
+		        		</span>
+
+		        		<span>
+		        			<span>
+		        				<strong>Primeras salidas:</strong> {{frecuenciaForward.primerasSalidasVuelta}}
+		        			</span>
+		        			<span>
+		        				<strong>Últimas salidas:</strong> {{frecuenciaForward.ultimasSalidasVuelta}}
+		        			</span>			        			
+		        		</span>
+		        	</div>
+	        	</div> 
+
         	</div>
         </ion-item>
 
@@ -61,24 +80,40 @@
 	            </ion-icon>
    		    </div>
 
-	        <div class="sectionFrecuencias" *ngIf="isGroupShownBack(i)">
-	        	<h2>
-	            	<ion-icon item-left name="time"></ion-icon>
+	        <div class="sectionFrecuencias" *ngIf="isGroupShownBack(i)" >
+
+        		<h2>
+	            	 <ion-icon  item-left name="time"></ion-icon>
 	            	<strong>Frecuencias</strong>
 	        	</h2>
 
-	        	<div>
-	        		<span>
-	        			<ion-icon item-left name="calendar"></ion-icon>
-	            		<span>{{frecuencias.nombreEs}}</span>
-	        		</span>
-	        		<span></span>
-	        		<span></span>
-	        		información frecuencia de luneas a sábados
+	        	<div *ngIf="frecuenciasBack" >
+		        	<div *ngFor="let frecuenciaBack of frecuenciasBack">
+		        		<span>
+		        			<ion-icon item-left name="calendar"></ion-icon>
+		            		<span>{{frecuenciaBack.nombreEs}}</span>
+		        		</span>
+
+		        		<span *ngIf="frecuenciaBack.mananas > 0">
+		        			<span>
+		        				<strong>Mañanas:</strong> {{frecuenciaBack.mananas}} minutos
+		        			</span>
+		        			<span>
+		        				<strong>Tardes:</strong> {{frecuenciaBack.tardes}} minutos
+		        			</span>		        			
+		        		</span>
+
+		        		<span>
+		        			<span>
+		        				<strong>Primeras salidas:</strong> {{frecuenciaBack.primerasSalidasVuelta}}
+		        			</span>
+		        			<span>
+		        				<strong>Últimas salidas:</strong> {{frecuenciaBack.ultimasSalidasVuelta}}
+		        			</span>			        			
+		        		</span>
+		        	</div>
 	        	</div>
-	        	<div>
-	        		información frecuencia de festivos
-	        	</div>
+
 	        </div>
 	    </ion-item>
 

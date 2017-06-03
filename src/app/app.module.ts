@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
-//import { GoogleMaps } from '@ionic-native/google-maps';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { LineBusData } from '../pages/line-bus-data/line-bus-data'
 import { ContactPage } from '../pages/contact/contact';

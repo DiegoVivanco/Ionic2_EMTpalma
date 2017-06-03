@@ -1,15 +1,15 @@
 page-line-bus-data {
 
-.item-md ion-icon[item-left]{
-    position: absolute;
-    margin-left: -15px;
-}
+    .item-md ion-icon[item-left]{
+        position: absolute;
+        margin-left: -15px;
+    }
 
- .item-md ion-icon[item-right] {
-    margin-top: 11px;
-    margin-bottom: 10px;
-    margin-right: 121px;
-}
+     .item-md ion-icon[item-right] {
+        margin-top: 11px;
+        margin-bottom: 10px;
+        margin-right: 121px;
+    }
 
     .list-md {
         margin: -14px 0 16px 0;
@@ -50,4 +50,14 @@ page-line-bus-data {
         text-align: left;
         margin: 0;
     }
+
+    .item-md ion-icon[name="time"]{
+        position: absolute;
+        top: 51px;
+     }
+
+    .item-md ion-icon[name="calendar"]{
+        position: absolute;
+        top: 76px;
+     }
 }
