@@ -9,6 +9,7 @@ import { HomePage } from '../home/home';
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
+//import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
 
 //import { googlemaps } from 'googlemaps';
 //import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'

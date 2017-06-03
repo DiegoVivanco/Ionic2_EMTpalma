@@ -29,6 +29,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 3,
     "trayectos": [
       {
         "claveLinea": 1,
@@ -6724,6 +6725,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 2,
@@ -7312,6 +7314,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 3,
@@ -13515,6 +13518,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 5,
@@ -15340,6 +15344,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 6,
@@ -17197,6 +17202,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 7,
@@ -21523,6 +21529,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 8,
@@ -22632,6 +22639,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 9,
@@ -25985,6 +25993,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 10,
@@ -27360,6 +27369,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 11,
@@ -29115,6 +29125,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 12,
@@ -30832,6 +30843,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 5,
     "trayectos": [
       {
         "claveLinea": 14,
@@ -40650,6 +40662,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 15,
@@ -43799,6 +43812,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 16,
@@ -46069,6 +46083,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 18,
@@ -47446,6 +47461,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 19,
@@ -49260,6 +49276,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 20,
@@ -51983,6 +52000,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 21,
@@ -53782,6 +53800,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 23,
@@ -59115,6 +59134,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 24,
@@ -61213,6 +61233,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 25,
@@ -63426,6 +63447,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 28,
@@ -70214,6 +70236,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 29,
@@ -72030,6 +72053,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 30,
@@ -73898,6 +73922,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 31,
@@ -80226,6 +80251,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 33,
@@ -81170,6 +81196,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 34,
@@ -82985,6 +83012,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 1,
     "trayectos": [
       {
         "claveLinea": 41,
@@ -84073,6 +84101,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
+    "routes": 2,
     "trayectos": [
       {
         "claveLinea": 46,

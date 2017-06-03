@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-import * as jqueryUI  from 'jquery-ui'
+//import * as jqueryUI  from 'jquery-ui'
 
 /**
  * Generated class for the LineBusData page.
@@ -64,7 +64,7 @@ export class LineBusData {
     		this.shownGroupForward = group;
     	}
 
-      this.createMap();
+   //   this.createMap();
     }
 
 	isGroupShownForward(group: any){

@@ -22,13 +22,11 @@
 
     <div *ngFor="let trayecto of trayectos; let i=index" text-wrap>
         <ion-item (click)="toggleGroupForward(i)" [ngClass]="{active: isGroupShownForward(i)}" >
-            <div>	            
             	<ion-icon item-left name="arrow-round-forward"></ion-icon>
 	            {{trayecto.nombre}} sentido hacia {{trayecto.destino}}
-	            <ion-icon color="success" item-right 
-	            		[name]="isGroupShownForward(i) ? 'arrow-dropdown' : 'arrow-dropright'">
+	            <ion-icon color="primary" item-right 
+	            		[name]="isGroupShownForward(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
 	            </ion-icon>
-            </div>
 
             <div class="leafletmap" id="leafletmap" #leafletmap *ngIf="isGroupShownForward(i)">
             	
@@ -72,13 +70,11 @@
         </ion-item>
 
         <ion-item (click)="toggleGroupBack(i)" [ngClass]="{active: isGroupShownBack(i)}" >
-        	<div>        
         		<ion-icon item-left name="arrow-round-back"></ion-icon>
         	    {{trayecto.nombre}} sentido hacia {{trayecto.origen}}
-        	    <ion-icon color="success" item-right 
-	            		[name]="isGroupShownBack(i) ? 'arrow-dropdown' : 'arrow-dropright'">
+        	    <ion-icon color="primary" item-right 
+	            		[name]="isGroupShownBack(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
 	            </ion-icon>
-   		    </div>
 
 	        <div class="sectionFrecuencias" *ngIf="isGroupShownBack(i)" >
 

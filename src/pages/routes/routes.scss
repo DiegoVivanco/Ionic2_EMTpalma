@@ -1,5 +1,18 @@
 page-routes {
+
+.label-md {
+    margin: 13px 3px 12px 43px;
+}
+
+     .item-md ion-icon[item-right] {
+        position: absolute;
+        top: -5px;
+        right: 10px;
+    }
+    
 	.colorParada{
+        position: absolute;
+        top: 8px;
 		color: white;
     	font-weight: bold;
     	width: 35px;

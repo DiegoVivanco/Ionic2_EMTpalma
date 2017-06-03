@@ -2,13 +2,14 @@ page-line-bus-data {
 
     .item-md ion-icon[item-left]{
         position: absolute;
+        top: -1px;
         margin-left: -15px;
     }
 
      .item-md ion-icon[item-right] {
-        margin-top: 11px;
-        margin-bottom: 10px;
-        margin-right: 121px;
+        position: absolute;
+        top: -5px;
+        right: 10px;
     }
 
     .list-md {

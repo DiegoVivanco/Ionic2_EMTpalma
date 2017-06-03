@@ -1,12 +1,34 @@
-
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic 2 Accordion
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
     <ion-item-divider color="primary" class="logo" fixed>Líneas</ion-item-divider>
 
 	<ion-list>
-		<button ion-item *ngFor="let linea of lineas" (click)="goToDetails(linea)">
+		<ion-item *ngFor="let linea of lineas; let i=index" text-wrap (click)="toggleGroup(i , linea)" [ngClass]="{active: isGroupShown(i)}">
 			<div item-left class="colorParada" [style.background-color]="linea.colorfuerte">{{linea.claveLinea}}</div>
             <h2 class="nombreLinea" [innerText]="linea.nombre"></h2>
-		</button>
+
+            <span *ngIf="linea.routes > 1">{{linea.routes}} routes</span>
+            <span *ngIf="linea.routes == 1">{{linea.routes}} route</span>
+
+    	    <ion-icon color="primary" item-right 
+        		[name]="isGroupShown(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
+	        </ion-icon>
+
+	        <div class="sectionRoutes" *ngIf="isGroupShown(i)">
+
+	        	<div *ngIf="trayectosLength > 0">
+		        	<div ion-item *ngFor="let trayecto of trayectos" (click)="goToRoute($event, trayecto)">
+		        		<span>{{trayecto.nombre}} - {{trayecto.destino}}</span>
+		        	</div>
+	        	</div> 
+	        </div>
+        </ion-item>
 	</ion-list>
 </ion-content>

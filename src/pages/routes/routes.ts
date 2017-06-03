@@ -12,6 +12,9 @@ export class RoutesPage {
 
 	lineas;
 	lineBusData = LineBusData;
+  trayectos;
+  trayectosLength;
+  shownGroup;
 
 
   constructor(public navCtrl: NavController,
@@ -22,15 +25,48 @@ export class RoutesPage {
   	this.lineas = this.lineasService.loadLineas()[0];
     this.lineas = Object.keys(this.lineas).map(key => this.lineas[key]);
     this.lineBusData = LineBusData;
+    this.trayectos= [];
+    this.trayectosLength = 0;
+    this.shownGroup = null;
 
 
   }
 
 
-  goToDetails(linea: any){
-    this.navCtrl.push(this.lineBusData, linea).then(()=>{
+  showRoutesDetails(linea: any){
+    this.trayectos = linea.trayectos;
+    this.trayectosLength = Object.keys(this.trayectos).length
+    console.log(this.trayectosLength);
+
+    /*this.navCtrl.push(this.lineBusData, linea).then(()=>{
       this.events.publish('getlinea', linea)
-    });
+    });*/
   }
+
+  toggleGroup(group: any, linea: any){
+
+      this.showRoutesDetails(linea);
+
+      if(this.isGroupShown(group)){
+        this.shownGroup = null;
+      }else {
+        this.shownGroup = group;
+      }
+    }
+
+  isGroupShown(group: any){
+    return this.shownGroup === group;
+
+  }
+
+  goToRoute(event: any, linea: any){
+    event.stopPropagation();
+    console.log(linea);
+
+    /*this.navCtrl.push(this.lineBusData, linea).then(()=>{
+      this.events.publish('getlinea', linea)
+    });*/
+  }
+
 }
 
