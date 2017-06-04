@@ -18,6 +18,8 @@ export class LineBusData {
 
   tab1Root = RouteForwardBus;
   tab2Root = RouteBackBus;
+  tab1Params;
+  tab2Params;
 	lineaSeleccionada;
 	trayectos;
 	frecuencias;
@@ -31,6 +33,8 @@ export class LineBusData {
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
   			  public events: Events) {
+      this.tab1Params = [];
+      this.tab2Params = [];
   		this.lineaSeleccionada = [];
   		this.trayectos = [];
   		this.frecuencias = []
@@ -42,10 +46,12 @@ export class LineBusData {
 
 
     	this.events.subscribe('getlinea', (trayecto) => {
-    		this.lineaSeleccionada = trayecto;
+      		this.lineaSeleccionada = trayecto;
+          this.tab1Params = trayecto;
+          this.tab2Params = trayecto;
 
-    		//this.trayectos = this.lineaSeleccionada.trayectos;
-    	   // this.trayectosLength = Object.keys(this.trayectos).length
+      		this.trayectos = this.lineaSeleccionada.recorridoCircular;
+      	  //this.trayectosLength = Object.keys(this.trayectos).length
 
     });
 
@@ -97,7 +103,7 @@ export class LineBusData {
 
 	}
 
-  createMap(){
+ /* createMap(){
     this.map = L.map('leafletmap').setView([39.5748641, 2.6449896], 14);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -105,6 +111,6 @@ export class LineBusData {
       zoom: 14,
       accessToken: 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA'
     }).addTo(this.map);
-  }
+  }*/
 
 }

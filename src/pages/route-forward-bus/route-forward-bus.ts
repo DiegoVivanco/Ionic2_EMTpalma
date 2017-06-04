@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the RouteForwardBus page.
@@ -13,12 +13,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'route-forward-bus.html',
 })
 export class RouteForwardBus {
+  
+  lineaSeleccionada;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
+  	this.lineaSeleccionada = navParams.data;
+    console.log(this.lineaSeleccionada);
+
+    /*this.events.subscribe('getRouteForward', (trayecto) => {
+          this.lineaSeleccionada = trayecto;
+          console.log("hola soy yo:");
+          console.log(this.lineaSeleccionada);
+
+          //this.trayectos = this.lineaSeleccionada.recorridoCircular;
+          //this.trayectosLength = Object.keys(this.trayectos).length
+
+    });*/
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RouteForwardBus');
-  }
 
 }

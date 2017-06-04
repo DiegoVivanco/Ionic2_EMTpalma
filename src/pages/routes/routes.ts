@@ -64,8 +64,12 @@ export class RoutesPage {
     console.log(trayecto);
 
     this.navCtrl.push(this.lineBusData, trayecto).then(()=>{
-      this.events.publish('getlinea', trayecto)
+      this.events.publish('getlinea', trayecto);
+      //this.events.publish('getRouteForward', trayecto);
+     // this.events.publish('getRouteBack', trayecto);
     });
+
+
   }
 
 }

@@ -17,10 +17,10 @@
 
 
 <ion-content padding >
-<ion-tabs tabsPlacement="top">
+<ion-tabs tabsPlacement="top" *ngIf="trayectos == null">
 	<!-- ion tabs -->
-  <ion-tab [root]="tab1Root" tabTitle="tesfdsafsfsafasfsadaadasdasdasdasdsdasdsadasdasdasdt" ></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="testDoadasdasdasdasdadsadasdasdadasdasdadasdasds" ></ion-tab>
+  <ion-tab [root]="tab1Root" [rootParams]="tab1Params" tabTitle="{{lineaSeleccionada.nombre}} - {{lineaSeleccionada.destino}}" ></ion-tab>
+  <ion-tab [root]="tab2Root" [rootParams]="tab2Params" tabTitle="{{lineaSeleccionada.nombre}} - {{lineaSeleccionada.origen}}" ></ion-tab>
 
 
 </ion-tabs>

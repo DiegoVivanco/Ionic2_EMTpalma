@@ -9,7 +9,11 @@
             <h2 class="nombreLinea" [innerText]="linea.nombre"></h2>
 
             <span *ngIf="linea.routes > 1">{{linea.routes}} routes</span>
-            <span *ngIf="linea.routes == 1">{{linea.routes}} route</span>
+            <span *ngIf="linea.routes == 1">{{linea.routes}} route 
+            		( <ion-icon item-left name="repeat">
+            		</ion-icon>
+            		Trayecto circular )
+            </span>
 
     	    <ion-icon color="primary" item-right 
         		[name]="isGroupShown(i) ? 'ios-remove-circle-outline' : 'ios-add-circle-outline' ">
