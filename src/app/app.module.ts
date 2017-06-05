@@ -68,7 +68,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   providers: [
     StatusBar,
     SplashScreen,
-    //GoogleMaps,
+    GoogleMaps,
     Lineas,
     ParadasMapa,
     Paradas,

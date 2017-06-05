@@ -24,7 +24,7 @@
                   <span>{{frecuenciaBack.nombreEs}}</span>
               </span>
 
-        <span *ngIf="frecuenciaBack.mananas > 0">
+        <span *ngIf="frecuenciaBack.mananas">
                     <span>
                       <strong>Mañanas:</strong> {{frecuenciaBack.mananas}} minutos
                     </span>
@@ -46,8 +46,7 @@
     </div>
   </div>
 
-  <div style="width:100%;height:100%;" #map id="map" *ngIf="showMap">
-    hola soy tu puebra de un mapa ejeje
+  <div style="width:100%;height:100%;" #mapBack id="mapBack" *ngIf="showMap">
   </div>
 
   <ion-fab bottom right [hidden]="hideFabMap">

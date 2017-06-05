@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-
+declare let google;
 /**
  * Generated class for the RouteForwardBus page.
  *
@@ -14,6 +14,8 @@ import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 })
 export class RouteForwardBus {
 
+  @ViewChild('mapForward') mapElement;
+  map;
   showMap: any;
   hideFabMap: any;
   hideFapRoute: any;
@@ -30,22 +32,32 @@ export class RouteForwardBus {
 
   }
 
-  showMapForward(){
+showMapForward(){
     this.showMap = true;
     this.hideFabMap = true;
     this.hideFapRoute = false;
+    setTimeout(() => {
+      this.mapRouteForward();
+    }, 300);
   }
 
-  showRouteForward(){
+ showRouteForward(){
     this.showMap = false;
     this.hideFabMap = false;
     this.hideFapRoute = true;
 
-  }
+ }
 
-  mapRouteForward(){
+ mapRouteForward(){
+    let latLng = new google.maps.LatLng(39.5830906, 2.6540206);
 
-  }
+   let mapOptions = {
+      center: latLng,
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
 
+   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
+ }
 }
