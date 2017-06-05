@@ -5,7 +5,7 @@
         <h2 class="nombreLinea" [innerText]="lineaSeleccionada.nombreLinea"></h2>
     </ion-title>
   </ion-navbar>
-</ion-header> 
+</ion-header>
 
 <!--<ion-header>
 
@@ -30,13 +30,13 @@
         <ion-item (click)="toggleGroupForward(i)" [ngClass]="{active: isGroupShownForward(i)}" >
             	<ion-icon item-left name="arrow-round-forward"></ion-icon>
 	            {{trayecto.nombre}} sentido hacia {{trayecto.destino}}
-	            <ion-icon color="primary" item-right 
+	            <ion-icon color="primary" item-right
 	            		[name]="isGroupShownForward(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
 	            </ion-icon>
 
             <div class="leafletmap" id="leafletmap" #leafletmap *ngIf="isGroupShownForward(i)">
-            	
-            </div>        
+
+            </div>
 
 	        <div class="sectionFrecuencias" *ngIf="isGroupShownForward(i)">
 
@@ -58,7 +58,7 @@
 		        			</span>
 		        			<span>
 		        				<strong>Tardes:</strong> {{frecuenciaForward.tardes}} minutos
-		        			</span>		        			
+		        			</span>
 		        		</span>
 
 		        		<span>
@@ -67,10 +67,10 @@
 		        			</span>
 		        			<span>
 		        				<strong>Últimas salidas:</strong> {{frecuenciaForward.ultimasSalidasVuelta}}
-		        			</span>			        			
+		        			</span>
 		        		</span>
 		        	</div>
-	        	</div> 
+	        	</div>
 
         	</div>
         </ion-item>
@@ -78,7 +78,7 @@
         <ion-item (click)="toggleGroupBack(i)" [ngClass]="{active: isGroupShownBack(i)}" >
         		<ion-icon item-left name="arrow-round-back"></ion-icon>
         	    {{trayecto.nombre}} sentido hacia {{trayecto.origen}}
-        	    <ion-icon color="primary" item-right 
+        	    <ion-icon color="primary" item-right
 	            		[name]="isGroupShownBack(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
 	            </ion-icon>
 
@@ -102,7 +102,7 @@
 		        			</span>
 		        			<span>
 		        				<strong>Tardes:</strong> {{frecuenciaBack.tardes}} minutos
-		        			</span>		        			
+		        			</span>
 		        		</span>
 
 		        		<span>
@@ -111,7 +111,7 @@
 		        			</span>
 		        			<span>
 		        				<strong>Últimas salidas:</strong> {{frecuenciaBack.ultimasSalidasVuelta}}
-		        			</span>			        			
+		        			</span>
 		        		</span>
 		        	</div>
 	        	</div>
@@ -129,7 +129,7 @@
             <ion-item>
             <ion-icon item-left name="repeat">
             </ion-icon>
-            	Trayecto circular			
+            	Trayecto circular
             </ion-item>
 
         </div>

@@ -13,23 +13,38 @@ import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
   templateUrl: 'route-forward-bus.html',
 })
 export class RouteForwardBus {
-  
-  lineaSeleccionada;
 
+  showMap: any;
+  hideFabMap: any;
+  hideFapRoute: any;
+  rutaSeleccionada;
+  frecuenciasForward;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
-  	this.lineaSeleccionada = navParams.data;
-    console.log(this.lineaSeleccionada);
+    this.rutaSeleccionada = navParams.data;
+    this.frecuenciasForward = this.rutaSeleccionada.frecuencias;
+    this.showMap = false;
+    this.hideFabMap = false;
+    this.hideFapRoute = true;
+    console.log(this.frecuenciasForward);
 
-    /*this.events.subscribe('getRouteForward', (trayecto) => {
-          this.lineaSeleccionada = trayecto;
-          console.log("hola soy yo:");
-          console.log(this.lineaSeleccionada);
+  }
 
-          //this.trayectos = this.lineaSeleccionada.recorridoCircular;
-          //this.trayectosLength = Object.keys(this.trayectos).length
+  showMapForward(){
+    this.showMap = true;
+    this.hideFabMap = true;
+    this.hideFapRoute = false;
+  }
 
-    });*/
+  showRouteForward(){
+    this.showMap = false;
+    this.hideFabMap = false;
+    this.hideFapRoute = true;
+
+  }
+
+  mapRouteForward(){
+
   }
 
 

@@ -14,11 +14,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RouteBackBus {
 
+  showMap: any;
+  hideFabMap: any;
+  hideFapRoute: any;
+  rutaSeleccionada;
+  frecuenciasBack;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.rutaSeleccionada = navParams.data;
+    this.frecuenciasBack = this.rutaSeleccionada.frecuencias;
+    this.showMap = false;
+    this.hideFabMap = false;
+    this.hideFapRoute = true;
+    console.log(this.frecuenciasBack);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RouteBackBus');
+  showMapBack(){
+    this.showMap = true;
+    this.hideFabMap = true;
+    this.hideFapRoute = false;
+  }
+
+  showRouteBack(){
+    this.showMap = false;
+    this.hideFabMap = false;
+    this.hideFapRoute = true;
+
   }
 
 }

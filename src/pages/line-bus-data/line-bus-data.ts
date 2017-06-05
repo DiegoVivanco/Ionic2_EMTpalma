@@ -20,38 +20,38 @@ export class LineBusData {
   tab2Root = RouteBackBus;
   tab1Params;
   tab2Params;
-	lineaSeleccionada;
-	trayectos;
-	frecuencias;
+  lineaSeleccionada;
+  trayectos;
+  frecuencias;
   frecuenciasForward;
   frecuenciasBack;
-	trayectosLength;
-	shownGroupForward;
-	shownGroupBack;
+  trayectosLength;
+  shownGroupForward;
+  shownGroupBack;
   map;
 
-  constructor(public navCtrl: NavController, 
-  			  public navParams: NavParams,
-  			  public events: Events) {
+  constructor(public navCtrl: NavController,
+          public navParams: NavParams,
+          public events: Events) {
       this.tab1Params = [];
       this.tab2Params = [];
-  		this.lineaSeleccionada = [];
-  		this.trayectos = [];
-  		this.frecuencias = []
+      this.lineaSeleccionada = [];
+      this.trayectos = [];
+      this.frecuencias = [];
       this.frecuenciasForward = [];
       this.frecuenciasBack = [];
-  		this.trayectosLength = 0;
-  		this.shownGroupForward = null;
-  		this.shownGroupBack = null;
+      this.trayectosLength = 0;
+      this.shownGroupForward = null;
+      this.shownGroupBack = null;
 
 
-    	this.events.subscribe('getlinea', (trayecto) => {
-      		this.lineaSeleccionada = trayecto;
+      this.events.subscribe('getlinea', (trayecto) => {
+          this.lineaSeleccionada = trayecto;
           this.tab1Params = trayecto;
           this.tab2Params = trayecto;
 
-      		this.trayectos = this.lineaSeleccionada.recorridoCircular;
-      	  //this.trayectosLength = Object.keys(this.trayectos).length
+          this.trayectos = this.lineaSeleccionada.recorridoCircular;
+          //this.trayectosLength = Object.keys(this.trayectos).length
 
     });
 
@@ -60,28 +60,28 @@ export class LineBusData {
 
   toggleGroupForward(group: any){
     if(this.trayectos[group].frecuencias.length === 0){
-      
+
       this.frecuenciasForward = [];
     }else{
       this.frecuenciasForward = this.trayectos[group].frecuencias;
     }
       console.log(group)
-    	console.log(this.frecuencias)
-    	if(this.isGroupShownForward(group)){
-    		this.shownGroupForward = null;
-    	}else {
-    		this.shownGroupForward = group;
-    	}
+      console.log(this.frecuencias)
+      if(this.isGroupShownForward(group)){
+        this.shownGroupForward = null;
+      }else {
+        this.shownGroupForward = group;
+      }
 
    //   this.createMap();
     }
 
-	isGroupShownForward(group: any){
-		return this.shownGroupForward === group;
+  isGroupShownForward(group: any){
+    return this.shownGroupForward === group;
 
-	}
+  }
 
-	toggleGroupBack(group: any){
+  toggleGroupBack(group: any){
     if(this.trayectos[group].frecuencias.length === 0){
 
       this.frecuenciasBack = [];
@@ -89,19 +89,19 @@ export class LineBusData {
     else{
       this.frecuenciasBack = this.trayectos[group].frecuencias;
     }
-    	console.log(group)
-    	console.log(this.frecuencias)
-    	if(this.isGroupShownBack(group)){
-    		this.shownGroupBack = null;
-    	}else {
-    		this.shownGroupBack = group;
-    	}
+      console.log(group)
+      console.log(this.frecuencias)
+      if(this.isGroupShownBack(group)){
+        this.shownGroupBack = null;
+      }else {
+        this.shownGroupBack = group;
+      }
     }
 
-	isGroupShownBack(group: any){
-		return this.shownGroupBack === group;
+  isGroupShownBack(group: any){
+    return this.shownGroupBack === group;
 
-	}
+  }
 
  /* createMap(){
     this.map = L.map('leafletmap').setView([39.5748641, 2.6449896], 14);

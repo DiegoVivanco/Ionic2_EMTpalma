@@ -8,4 +8,55 @@
 
 <ion-content padding>
 
+  <div class="sectionFrecuencias" [hidden]="showMap">
+
+    <h2>
+      <ion-icon item-left name="time"></ion-icon>
+      <strong>Frecuencias</strong>
+    </h2>
+
+    <div *ngIf="frecuenciasBack">
+
+      <div *ngFor="let frecuenciaBack of frecuenciasBack">
+
+              <span>
+                <ion-icon item-left name="calendar"></ion-icon>
+                  <span>{{frecuenciaBack.nombreEs}}</span>
+              </span>
+
+        <span *ngIf="frecuenciaBack.mananas > 0">
+                    <span>
+                      <strong>Mañanas:</strong> {{frecuenciaBack.mananas}} minutos
+                    </span>
+                    <span>
+                      <strong>Tardes:</strong> {{frecuenciaBack.tardes}} minutos
+                    </span>
+              </span>
+
+        <span>
+                  <span>
+                    <strong>Primeras salidas:</strong> {{frecuenciaBack.primerasSalidasVuelta}}
+                  </span>
+                  <span>
+                    <strong>Últimas salidas:</strong> {{frecuenciaBack.ultimasSalidasVuelta}}
+                  </span>
+              </span>
+
+      </div>
+    </div>
+  </div>
+
+  <div style="width:100%;height:100%;" #map id="map" *ngIf="showMap">
+    hola soy tu puebra de un mapa ejeje
+  </div>
+
+  <ion-fab bottom right [hidden]="hideFabMap">
+    <button ion-fab (click)="showMapBack()"><ion-icon name="md-map"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab bottom right [hidden]="hideFapRoute">
+    <button ion-fab (click)="showRouteBack()"><ion-icon name="ios-trending-up"></ion-icon></button>
+  </ion-fab>
+
+
 </ion-content>
