@@ -21,6 +21,8 @@ export class RouteBackBus {
   hideFapRoute: any;
   routeSelected;
   frequenciesBack;
+  stopsLineBackList;
+  stopsNamesLineBackList;
   routeMapBack: any;
   paradasMapa: any;
 
@@ -32,10 +34,23 @@ export class RouteBackBus {
     this.routeSelected = navParams.data;
     this.frequenciesBack = this.routeSelected.frecuencias;
     this.routeMapBack = this.routeSelected.recorridoIda;
+    this.stopsLineBackList = this.routeSelected.vuelta;
     this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
+    this.stopsNamesLineBackList = this.getRouteBackCoordsList();
+    console.log(this.stopsNamesLineBackList);
     this.showMap = false;
     this.hideFabMap = false;
     this.hideFapRoute = true;
+     setTimeout(() => {
+      this.changeColorTimeLine();
+    }, 200);
+  }
+
+  changeColorTimeLine(){
+    let elements = <HTMLElement[]><any>document.querySelectorAll('.royal');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.borderColor = this.routeSelected.colorfuerte;
+    }
   }
 
   showMapBack(){

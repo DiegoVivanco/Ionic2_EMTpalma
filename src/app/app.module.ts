@@ -16,7 +16,7 @@ import { WarningsPage } from '../pages/warnings/warnings';
 import { StopsPage } from '../pages/stops/stops';
 import { RoutesPage } from '../pages/routes/routes';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsPage } from '../pages/tabs/tabs';    
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,6 +28,8 @@ import { ParadasMapa } from '../providers/paradas-mapa';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { GetKeys } from '../pipes/get-keys';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     LineBusData,
     RouteForwardBus,
     RouteBackBus,
-    TabsPage
+    TabsPage,
+    GetKeys
   ],
   imports: [
     BrowserModule,

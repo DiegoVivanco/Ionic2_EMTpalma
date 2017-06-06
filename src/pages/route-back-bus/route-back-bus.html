@@ -8,6 +8,26 @@
 
 <ion-content padding>
 
+     <section id="cd-timeline" class="cd-container"  *ngFor="let timeBackList of stopsNamesLineBackList | keys" [hidden]="showMap">
+      <div >
+        <div class="cd-timeline-block">
+          <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
+          <div class="cd-timeline-icon royal">
+              
+          </div>
+          <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
+          <div class="cd-timeline-content royal">
+            test: {{timeBackList}}-->
+            testDos: {{timeBackList.keys}}-->
+
+            <h5 class="marginBottom0 marginTop0">{{timeBackList[key]}}</h5>
+            <p class="marginTop5 cd-author"> falso {{timeBackList}}</p>
+            <p class="timelineText">activity.text</p>
+          </div>
+        </div>
+      </div>
+    </section> 
+
   <div class="sectionFrecuencias" [hidden]="showMap">
 
     <h2>
