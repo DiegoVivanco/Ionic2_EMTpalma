@@ -6735,6 +6735,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Circumval·lació Centre Històric",
+        "colorfuerte": "rgb(183, 141, 186)",
         "claveLinea": 2,
         "claveTrayecto": 1,
         "principal": true,
@@ -7325,6 +7326,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Pont d'Inca - Illetes",
+        "colorfuerte": "rgb(244, 91, 164)",
         "claveLinea": 3,
         "claveTrayecto": 1,
         "principal": true,
@@ -10600,6 +10602,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Pont d'Inca - Illetes",
+        "colorfuerte": "rgb(244, 91, 164)",
         "claveLinea": 3,
         "claveTrayecto": 2,
         "principal": false,
@@ -13531,6 +13534,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Es Rafal Nou-Son Dureta",
+        "colorfuerte": "rgb(114, 192, 216)",
         "claveLinea": 5,
         "claveTrayecto": 1,
         "principal": true,
@@ -15358,6 +15362,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Nou Llevant - Son Espases",
+        "colorfuerte": "rgb(79, 109, 94)",
         "claveLinea": 6,
         "claveTrayecto": 1,
         "principal": true,
@@ -17217,6 +17222,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Rapinya - Son Gotleu",
+        "colorfuerte": "rgb(73, 156, 117)",
         "claveLinea": 7,
         "claveTrayecto": 2,
         "principal": false,
@@ -19576,6 +19582,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Rapinya - Son Gotleu",
+        "colorfuerte": "rgb(73, 156, 117)",
         "claveLinea": 7,
         "claveTrayecto": 1,
         "principal": true,
@@ -21546,6 +21553,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Roca",
+        "colorfuerte": "rgb(78, 67, 177)",
         "claveLinea": 8,
         "claveTrayecto": 1,
         "principal": true,
@@ -22657,6 +22665,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Espanyol",
+        "colorfuerte": "rgb(171, 71, 143)",
         "claveLinea": 9,
         "claveTrayecto": 2,
         "principal": false,
@@ -24485,6 +24494,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Espanyol",
+        "colorfuerte": "rgb(171, 71, 143)",
         "claveLinea": 9,
         "claveTrayecto": 1,
         "principal": true,
@@ -26013,6 +26023,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Cladera - Sa Indioteria",
+        "colorfuerte": "rgb(98, 62, 90)",
         "claveLinea": 10,
         "claveTrayecto": 1,
         "principal": true,
@@ -27390,6 +27401,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Sa Indioteria",
+        "colorfuerte": "rgb(243, 219, 120)",
         "claveLinea": 11,
         "claveTrayecto": 1,
         "principal": true,
@@ -29147,6 +29159,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Sardina - Nou Llevant",
+        "colorfuerte": "rgb(241, 181, 67)",
         "claveLinea": 12,
         "claveTrayecto": 1,
         "principal": true,
@@ -30866,6 +30879,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Ferriol",
+        "colorfuerte": "rgb(97, 115, 199)",
         "claveLinea": 14,
         "claveTrayecto": 1,
         "principal": true,
@@ -32636,6 +32650,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Ferriol",
+        "colorfuerte": "rgb(97, 115, 199)",
         "claveLinea": 14,
         "claveTrayecto": 5,
         "principal": false,
@@ -34868,6 +34883,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Ferriol",
+        "colorfuerte": "rgb(97, 115, 199)",
         "claveLinea": 14,
         "claveTrayecto": 2,
         "principal": false,
@@ -36683,6 +36699,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Ferriol",
+        "colorfuerte": "rgb(97, 115, 199)",
         "claveLinea": 14,
         "claveTrayecto": 4,
         "principal": false,
@@ -38680,6 +38697,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Ferriol",
+        "colorfuerte": "rgb(97, 115, 199)",
         "claveLinea": 14,
         "claveTrayecto": 3,
         "principal": false,
@@ -40690,6 +40708,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Platja de Palma - Plaça de la Reina",
+        "colorfuerte": "rgb(36, 116, 204)",
         "claveLinea": 15,
         "claveTrayecto": 1,
         "principal": true,
@@ -43841,6 +43860,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Establiments-Son Fuster",
+        "colorfuerte": "rgb(84, 150, 175)",
         "claveLinea": 16,
         "claveTrayecto": 1,
         "principal": true,
@@ -46113,6 +46133,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Riera",
+        "colorfuerte": "rgb(113, 98, 64)",
         "claveLinea": 18,
         "claveTrayecto": 1,
         "principal": true,
@@ -47492,6 +47513,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Universitat",
+        "colorfuerte": "rgb(94, 165, 50)",
         "claveLinea": 19,
         "claveTrayecto": 1,
         "principal": true,
@@ -49308,6 +49330,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Sant Agustí - Son Espases",
+        "colorfuerte": "rgb(222, 84, 78)",
         "claveLinea": 20,
         "claveTrayecto": 1,
         "principal": true,
@@ -52033,6 +52056,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "S'Arenal - Aeroport",
+        "colorfuerte": "rgb(108, 0, 7)",
         "claveLinea": 21,
         "claveTrayecto": 1,
         "principal": true,
@@ -53834,6 +53858,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Palma-S'Arenal-Cala Blava",
+        "colorfuerte": "rgb(179, 150, 51)",
         "claveLinea": 23,
         "claveTrayecto": 2,
         "principal": false,
@@ -56653,6 +56678,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Palma-S'Arenal-Cala Blava",
+        "colorfuerte": "rgb(179, 150, 51)",
         "claveLinea": 23,
         "claveTrayecto": 1,
         "principal": true,
@@ -59170,6 +59196,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Llàtzer-Son Hugo",
+        "colorfuerte": "rgb(96, 86, 119)",
         "claveLinea": 24,
         "claveTrayecto": 1,
         "principal": true,
@@ -61270,6 +61297,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Platja de Palma Exprés",
+        "colorfuerte": "rgb(102, 102, 102)",
         "claveLinea": 25,
         "claveTrayecto": 1,
         "principal": true,
@@ -63485,6 +63513,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Llàtzer Circular",
+        "colorfuerte": "rgb(233, 160, 200)",
         "claveLinea": 28,
         "claveTrayecto": 1,
         "principal": true,
@@ -67236,6 +67265,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Son Llàtzer Circular",
+        "colorfuerte": "rgb(233, 160, 200)",
         "claveLinea": 28,
         "claveTrayecto": 2,
         "principal": false,
@@ -70276,6 +70306,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Circular Son Espases",
+        "colorfuerte": "rgb(196, 166, 149)",
         "claveLinea": 29,
         "claveTrayecto": 2,
         "principal": false,
@@ -70403,6 +70434,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Circular Son Espases",
+        "colorfuerte": "rgb(196, 166, 149)",
         "claveLinea": 29,
         "claveTrayecto": 1,
         "principal": true,
@@ -72095,6 +72127,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Sant Joan de Dèu",
+        "colorfuerte": "rgb(160, 69, 65)",
         "claveLinea": 30,
         "claveTrayecto": 1,
         "principal": true,
@@ -73965,6 +73998,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Palma-Sant Jordi-S'Arenal",
+        "colorfuerte": "rgb(211, 221, 125)",
         "claveLinea": 31,
         "claveTrayecto": 1,
         "principal": true,
@@ -76819,6 +76853,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Palma-Sant Jordi-S'Arenal",
+        "colorfuerte": "rgb(211, 221, 125)",
         "claveLinea": 31,
         "claveTrayecto": 2,
         "principal": false,
@@ -80296,6 +80331,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Espases",
+        "colorfuerte": "rgb(104, 121, 129)",
         "claveLinea": 33,
         "claveTrayecto": 1,
         "principal": true,
@@ -81242,6 +81278,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Son Espases-Es Rafal",
+        "colorfuerte": "rgb(150, 150, 145)",
         "claveLinea": 34,
         "claveTrayecto": 1,
         "principal": true,
@@ -83059,6 +83096,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Bus de Nit",
+        "colorfuerte": "rgb(245, 142, 73)",
         "claveLinea": 41,
         "claveTrayecto": 1,
         "principal": true,
@@ -84149,6 +84187,7 @@ export class Lineas {
     "trayectos": [
       {
         "nombreLinea": "Gènova - Sant Agustí -Palma",
+        "colorfuerte": "rgb(238, 170, 96)",
         "claveLinea": 46,
         "claveTrayecto": 1,
         "principal": true,
@@ -86503,6 +86542,7 @@ export class Lineas {
       },
       {
         "nombreLinea": "Gènova - Sant Agustí -Palma",
+        "colorfuerte": "rgb(238, 170, 96)",
         "claveLinea": 46,
         "claveTrayecto": 2,
         "principal": false,

@@ -21,6 +21,8 @@ export class RouteForwardBus {
   hideFapRoute: any;
   routeSelected;
   frequenciesForward;
+  stopsLineForwardList;
+  stopsNamesLineForwardList;  
   routeMapForward: any;
   paradasMapa: any;
 
@@ -32,12 +34,24 @@ export class RouteForwardBus {
     this.routeSelected = navParams.data;
     this.frequenciesForward = this.routeSelected.frecuencias;
     this.routeMapForward = this.routeSelected.recorridoIda;
+    this.stopsLineForwardList = this.routeSelected.ida;
     this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
+    this.stopsNamesLineForwardList = this.getRouteForwardCoordsList();
     this.showMap = false;
     this.hideFabMap = false;
     this.hideFapRoute = true;
+     setTimeout(() => {
+      this.changeColorTimeLine();
+    }, 200);
   }
 
+  changeColorTimeLine(){
+    let elements = <HTMLElement[]><any>document.querySelectorAll('.royal');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.borderColor = this.routeSelected.colorfuerte;
+    }
+  }
+  
   showMapForward(){
       this.showMap = true;
       this.hideFabMap = true;

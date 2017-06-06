@@ -28,7 +28,6 @@ import { ParadasMapa } from '../providers/paradas-mapa';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
-import { GetKeys } from '../pipes/get-keys';
 
 
 @NgModule({
@@ -44,8 +43,7 @@ import { GetKeys } from '../pipes/get-keys';
     LineBusData,
     RouteForwardBus,
     RouteBackBus,
-    TabsPage,
-    GetKeys
+    TabsPage
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,7 @@ page-route-back-bus {
   }
   .marginTop0 {
     margin-top: 0;
+    text-align: center;
   }
   .marginTop5 {
     margin-top: 5px !important;
@@ -57,7 +58,7 @@ page-route-back-bus {
     color: white;
   }
   .cd-author {
-    color:gray;
+    color:black;
   }
   #cd-timeline {
     position: relative;
@@ -101,8 +102,12 @@ page-route-back-bus {
     border-style: solid;
     border-width: 2px;
     padding-top:5px;
-    background: white;
+    color: white;
     text-align: center;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px grey;
   }
   .cd-timeline-icon i {
     color: #4a87ee;
@@ -148,14 +153,12 @@ page-route-back-bus {
   }
   .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
     font-size: 13px;
-    font-size: 0.8125rem;
   }
   .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
     display: inline-block;
   }
   .cd-timeline-content p {
     margin: 1em 0;
-    line-height: 1.6;
   }
 
 

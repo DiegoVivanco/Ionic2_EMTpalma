@@ -33,11 +33,10 @@ export class RouteBackBus {
 
     this.routeSelected = navParams.data;
     this.frequenciesBack = this.routeSelected.frecuencias;
-    this.routeMapBack = this.routeSelected.recorridoIda;
+    this.routeMapBack = this.routeSelected.recorridoVuelta;
     this.stopsLineBackList = this.routeSelected.vuelta;
     this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
     this.stopsNamesLineBackList = this.getRouteBackCoordsList();
-    console.log(this.stopsNamesLineBackList);
     this.showMap = false;
     this.hideFabMap = false;
     this.hideFapRoute = true;
