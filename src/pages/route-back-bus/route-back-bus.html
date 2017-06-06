@@ -15,30 +15,30 @@
       <strong>Frecuencias</strong>
     </h2>
 
-    <div *ngIf="frecuenciasBack">
+    <div *ngIf="frequenciesBack">
 
-      <div *ngFor="let frecuenciaBack of frecuenciasBack">
+      <div *ngFor="let frecuencyBack of frequenciesBack">
 
               <span>
                 <ion-icon item-left name="calendar"></ion-icon>
-                  <span>{{frecuenciaBack.nombreEs}}</span>
+                  <span>{{frecuencyBack.nombreEs}}</span>
               </span>
 
-        <span *ngIf="frecuenciaBack.mananas">
+        <span *ngIf="frecuencyBack.mananas">
                     <span>
-                      <strong>Mañanas:</strong> {{frecuenciaBack.mananas}} minutos
+                      <strong>Mañanas:</strong> {{frecuencyBack.mananas}} minutos
                     </span>
                     <span>
-                      <strong>Tardes:</strong> {{frecuenciaBack.tardes}} minutos
+                      <strong>Tardes:</strong> {{frecuencyBack.tardes}} minutos
                     </span>
               </span>
 
         <span>
                   <span>
-                    <strong>Primeras salidas:</strong> {{frecuenciaBack.primerasSalidasVuelta}}
+                    <strong>Primeras salidas:</strong> {{frecuencyBack.primerasSalidasVuelta}}
                   </span>
                   <span>
-                    <strong>Últimas salidas:</strong> {{frecuenciaBack.ultimasSalidasVuelta}}
+                    <strong>Últimas salidas:</strong> {{frecuencyBack.ultimasSalidasVuelta}}
                   </span>
               </span>
 
