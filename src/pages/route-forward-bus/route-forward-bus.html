@@ -29,34 +29,34 @@
 
   <div class="sectionFrecuencias" [hidden]="showMap" >
 
-      <h2>
+      <h2 class="frecuencia">
         <ion-icon item-left name="time"></ion-icon>
         <strong>Frecuencias</strong>
       </h2>
 
       <div *ngIf="frequenciesForward">
 
-          <div *ngFor="let frecuencyForward of frequenciesForward">
+          <div class="hours" *ngFor="let frecuencyForward of frequenciesForward">
 
-              <span>
+              <span class="frecuencia">
                 <ion-icon item-left name="calendar"></ion-icon>
                   <span>{{frecuencyForward.nombreEs}}</span>
               </span>
 
               <span *ngIf="frecuencyForward.mananas > 0">
-                    <span>
+                    <span class="frecuencia">
                       <strong>Mañanas:</strong> {{frecuencyForward.mananas}} minutos
                     </span>
-                    <span>
+                    <span class="frecuencia">
                       <strong>Tardes:</strong> {{frecuencyForward.tardes}} minutos
                     </span>
               </span>
 
               <span>
-                  <span>
+                  <span class="frecuencia">
                     <strong>Primeras salidas:</strong> {{frecuencyForward.primerasSalidas}}
                   </span>
-                  <span>
+                  <span class="frecuencia">
                     <strong>Últimas salidas:</strong> {{frecuencyForward.ultimasSalidas}}
                   </span>
               </span>
