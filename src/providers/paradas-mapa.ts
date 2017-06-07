@@ -4755,13 +4755,13 @@ export class ParadasMapa {
             "line": "11",
             "vh_first": {
               "destino": "SA INDIOTERIA",
-              "seconds": Math.floor(Math.random() * 900),
+              "seconds": this.generateMinutes(),
               "enParada": false,
               "llegando": false
             },
             "vh_second": {
               "destino": "SA INDIOTERIA",
-              "seconds":  Math.floor(Math.random() * 900) + 900,
+              "seconds":  this.secondGenerateMinutes(),
               "enParada": false,
               "llegando": false
             }
@@ -4770,13 +4770,13 @@ export class ParadasMapa {
             "line": "31",
             "vh_first": {
               "destino": "A-S'ARENAL-S.JORDI",
-              "seconds": Math.floor(Math.random() * 900),
+              "seconds": this.generateMinutes(),
               "enParada": false,
               "llegando": false
             },
             "vh_second": {
               "destino": "SA INDIOTERIA",
-              "seconds": Math.floor(Math.random() * 900) + 900,
+              "seconds": this.secondGenerateMinutes(),
               "enParada": false,
               "llegando": false
             }
@@ -4786,5 +4786,31 @@ export class ParadasMapa {
     }
 
     return generate;
+  }
+
+  generateMinutes(){
+    let seconds = Math.floor(Math.random() * 900);
+
+    let minutes = seconds / 60;
+    let minutesString = minutes.toString();
+
+    let result = minutesString.substring(0, minutesString.indexOf("."));
+
+    let minutesInt = parseInt(result);
+
+    return minutesInt;
+  }
+
+  secondGenerateMinutes(){
+    let seconds = Math.floor(Math.random() * 900) + 900;
+
+    let minutes = seconds / 60;
+    let minutesString = minutes.toString();
+
+    let result = minutesString.substring(0, minutesString.indexOf("."));
+
+    let minutesInt = parseInt(result);
+
+    return minutesInt;    
   }
 }

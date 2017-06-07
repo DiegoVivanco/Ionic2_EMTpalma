@@ -1,7 +1,7 @@
 page-routes {
 
 .label-md {
-    margin: 13px 3px 12px 43px;
+    margin: 13px 3px 12px 10px;
 }
 
      .item-md ion-icon[item-right] {
@@ -10,6 +10,10 @@ page-routes {
         right: 10px;
     }
     
+    .numberRoute{
+        margin-left: 39px;
+    }
+
 	.colorParada{
         position: absolute;
         top: 8px;
@@ -26,6 +30,8 @@ page-routes {
     	text-shadow: 1px 1px 5px grey;
 	}
 	.nombreLinea{
+        position: relative;
+        left: 39px;
 		font-weight: 600;
     	font-size: 15px;
     	display: table-cell;
@@ -33,5 +39,14 @@ page-routes {
     	width: 85%;
     	text-align: left;
 	}
+
+    .route:hover{
+        color: #dbcaca;
+        background: #dbcaca;
+    }
+
+    .sectionRoutes{
+        border-top: 1px dotted;
+    }
 
 }

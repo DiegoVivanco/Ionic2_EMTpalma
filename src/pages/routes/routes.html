@@ -8,8 +8,8 @@
 			<div item-left class="colorParada" [style.background-color]="linea.colorfuerte">{{linea.claveLinea}}</div>
             <h2 class="nombreLinea" [innerText]="linea.nombre"></h2>
 
-            <span *ngIf="linea.routes > 1">{{linea.routes}} routes</span>
-            <span *ngIf="linea.routes == 1">{{linea.routes}} route 
+            <span class="numberRoute" *ngIf="linea.routes > 1">{{linea.routes}} routes</span>
+            <span class="numberRoute" *ngIf="linea.routes == 1">{{linea.routes}} route 
             		( <ion-icon item-left name="repeat">
             		</ion-icon>
             		Trayecto circular )
@@ -22,7 +22,7 @@
 	        <div class="sectionRoutes" *ngIf="isGroupShown(i)">
 
 	        	<div *ngIf="trayectosLength > 0">
-		        	<div ion-item *ngFor="let trayecto of trayectos" (click)="goToRoute($event, trayecto)">
+		        	<div class="route" ion-item *ngFor="let trayecto of trayectos" (click)="goToRoute($event, trayecto)">
 		        		<span>{{trayecto.nombre}} - {{trayecto.destino}}</span>
 		        	</div>
 	        	</div> 
