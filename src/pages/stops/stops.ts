@@ -9,11 +9,19 @@ import { HomePage } from '../home/home';
 
 import L from 'leaflet';
 import 'leaflet.markercluster';
+import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 //import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
 
 //import { googlemaps } from 'googlemaps';
 //import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
 import * as jQuery  from 'jquery'
+
+const provider = new OpenStreetMapProvider();
+
+const searchControl = new GeoSearchControl({
+  provider: provider,
+  autoClose: true,                                   // optional: true|false  - default false
+});
 
 
 @Component({
@@ -64,6 +72,7 @@ export class StopsPage {
       accessToken: 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA'
     }).addTo(this.map);
     this.showMarkers();
+    this.map.addControl(searchControl);
 
     const self = <StopsPage> this;
     jQuery('#map').on('click', '.selectCoords', function(e) {

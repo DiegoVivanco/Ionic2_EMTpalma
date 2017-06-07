@@ -136,6 +136,22 @@ page-stops {
     color: #1a1e06;
     background: rgba(255,255,255,0.95);
   }
+
+  .leaflet-bar-part-single{
+    display: none;
+  }
+
+ .results.active{
+    border-style: groove;
+    background: white;
+  }
+  .results.active div{
+    border-style: groove;
+  }
+
+ .reset{
+    display: none;
+  }
 }
 
 
