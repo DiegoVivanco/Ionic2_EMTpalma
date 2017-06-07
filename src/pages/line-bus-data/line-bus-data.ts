@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
-//import * as jqueryUI  from 'jquery-ui'
 import { RouteForwardBus } from '../route-forward-bus/route-forward-bus';
 import { RouteBackBus } from '../route-back-bus/route-back-bus';
 /**
@@ -51,11 +50,7 @@ export class LineBusData {
           this.tab2Params = trayecto;
 
           this.trayectos = this.lineaSeleccionada.recorridoCircular;
-          //this.trayectosLength = Object.keys(this.trayectos).length
-
-    });
-
-
+        });
     }
 
   toggleGroupForward(group: any){
@@ -72,13 +67,10 @@ export class LineBusData {
       }else {
         this.shownGroupForward = group;
       }
-
-   //   this.createMap();
     }
 
   isGroupShownForward(group: any){
     return this.shownGroupForward === group;
-
   }
 
   toggleGroupBack(group: any){
@@ -100,17 +92,5 @@ export class LineBusData {
 
   isGroupShownBack(group: any){
     return this.shownGroupBack === group;
-
   }
-
- /* createMap(){
-    this.map = L.map('leafletmap').setView([39.5748641, 2.6449896], 14);
-
-    L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets-basic/{z}/{x}/{y}.png?access_token={accessToken}', {
-      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      zoom: 14,
-      accessToken: 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA'
-    }).addTo(this.map);
-  }*/
-
 }

@@ -20,7 +20,8 @@ export class ParadasMapa {
       "1": [
         "39.57164001464844",
         "2.6555631160736084",
-        "Porta de Sant Antoni"
+        "Porta de Sant Antoni",
+
       ],
       "2": [
         "39.57563781738281",
@@ -4735,4 +4736,55 @@ export class ParadasMapa {
     }
         ]
 }
+
+  generateLoadParadas(){
+    let generate = {
+      stops: []
+    };
+
+    let paradasMapa = this.loadParadasMapa()[0];
+    for (let key in paradasMapa){
+
+
+      generate.stops.push({
+        "numeroParada" : key,
+        "nombreParada" : paradasMapa[key][2],
+        "estimaciones": [
+          {
+            "color": "rgb(243, 219, 120)",
+            "line": "11",
+            "vh_first": {
+              "destino": "SA INDIOTERIA",
+              "seconds": Math.floor(Math.random() * 900),
+              "enParada": false,
+              "llegando": false
+            },
+            "vh_second": {
+              "destino": "SA INDIOTERIA",
+              "seconds":  Math.floor(Math.random() * 900) + 900,
+              "enParada": false,
+              "llegando": false
+            }
+          }, {
+            "color": "rgb(211, 221, 125)",
+            "line": "31",
+            "vh_first": {
+              "destino": "A-S'ARENAL-S.JORDI",
+              "seconds": Math.floor(Math.random() * 900),
+              "enParada": false,
+              "llegando": false
+            },
+            "vh_second": {
+              "destino": "SA INDIOTERIA",
+              "seconds": Math.floor(Math.random() * 900) + 900,
+              "enParada": false,
+              "llegando": false
+            }
+          } ]
+
+      })
+    }
+
+    return generate;
+  }
 }
