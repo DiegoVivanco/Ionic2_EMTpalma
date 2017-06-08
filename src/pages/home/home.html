@@ -80,14 +80,24 @@
   <ion-list *ngIf=" isSearching || keyword == '' "
             [hidden]="consultedStops.length == 0">
     <ion-item-divider color="primary" class="logo" fixed>Paradas Consultadas</ion-item-divider>
-    <button ion-item *ngFor="let consultedStop of consultedStops" (click)="getResultEvent(consultedStop.index)">
-      <img item-left class="bus" src="assets/img/bus.png">
-      <div item-left class="numeroParada">{{consultedStop.index}}</div>
-      <h2 [innerText]="consultedStop.name"></h2>
-      <ion-icon  class="eliminar" item-right color="danger"
-                 name="remove-circle" (click)="removeData(consultedStop.index)">
-      </ion-icon>
-    </button>
+
+    <ion-item-sliding *ngFor="let consultedStop of consultedStops">
+
+      <button ion-item  (click)="getResultEvent(consultedStop.index)">
+        <img item-left class="bus" src="assets/img/bus.png">
+        <div item-left class="numeroParada">{{consultedStop.index}}</div>
+        <h2 [innerText]="consultedStop.name"></h2>
+       <!-- <ion-icon  class="eliminar" item-right color="danger"
+                   name="md-close" (click)="removeData(consultedStop.index)">
+        </ion-icon> -->
+      </button>
+
+      <ion-item-options>
+                <button class="remove" color="danger" (click)="removeData(consultedStop.index)">Delete</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
   </ion-list>
 
 </ion-content>

@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import { ParadasMapa } from '../../providers/paradas-mapa';
-// import * as moment from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-home',
@@ -29,16 +29,13 @@ export class HomePage {
               public events: Events) {
     this.consultedStops = [];
     this.stops = this.stopsMapaService.generateLoadStops().stops;
-    console.log(this.stops);
     this.results = [];
     this.information = [];
     this.keyword = '';
     this.getAllItems();
     this.isSearching = true;
-    this.currentDate =  new Date().toLocaleString();
-    console.log(this.currentDate);
-    // this. currentDate = new moment().format('MMMM Do YYYY, h:mm:ss');
-    // console.log(this.currentDate);
+    this.currentDate = moment().locale('es').format('MMMM Do YYYY, h:mm:ss');
+
     events.subscribe('getid', (id: string) => {
       this.stops = this.stopsMapaService.generateLoadStops().stops;
       this.getResultEvent(id);
@@ -46,13 +43,11 @@ export class HomePage {
   }
 
   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
     this.stops = this.stopsMapaService.generateLoadStops().stops;
-    this.currentDate =  new Date().toLocaleString();
-    this.getResultEvent(this.keyword);
 
     setTimeout(() => {
-      console.log('Async operation has ended');
+      this.currentDate = moment().locale('es').format('MMMM Do YYYY, h:mm:ss');
+      this.getResultEvent(this.keyword);
       refresher.complete();
     }, 2000);
   }
