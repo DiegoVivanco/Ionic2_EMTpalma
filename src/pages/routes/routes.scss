@@ -9,40 +9,40 @@ page-routes {
         top: 5px;
         right: 10px;
     }
-    
+
     .numberRoute{
         margin-left: 39px;
     }
 
-	.colorParada{
-        position: absolute;
-        top: 8px;
-		color: white;
-    	font-weight: bold;
-    	width: 35px;
-    	height: 35px;
-    	display: inline-block;
-    	border-radius: 35px;
-    	text-align: center;
-    	line-height: 35px;
-    	font-size: 20px;
-    	float: left;
-    	text-shadow: 1px 1px 5px grey;
-	}
-	.nombreLinea{
-        position: relative;
-        left: 39px;
-		font-weight: 600;
-    	font-size: 15px;
-    	display: table-cell;
-    	vertical-align: middle;
-    	width: 85%;
-    	text-align: left;
-	}
+    .colorParada{
+      position: absolute;
+      top: 8px;
+        color: white;
+        font-weight: bold;
+        width: 35px;
+        height: 35px;
+        display: inline-block;
+        border-radius: 35px;
+        text-align: center;
+        line-height: 35px;
+        font-size: 20px;
+        float: left;
+        text-shadow: 1px 1px 5px grey;
+    }
+    .nombreLinea{
+      position: relative;
+      left: 39px;
+          font-weight: 600;
+        font-size: 15px;
+        display: table-cell;
+        vertical-align: middle;
+        width: 85%;
+        text-align: left;
+    }
 
     .route:hover{
         color: #dbcaca;
-        background: #dbcaca;
+        background: #000000;
     }
 
     .sectionRoutes{

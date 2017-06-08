@@ -10,8 +10,8 @@ import { LineBusData } from '../line-bus-data/line-bus-data'
 })
 export class RoutesPage {
 
-	lineas;
-	lineBusData = LineBusData;
+  lineas;
+  lineBusData = LineBusData;
   trayectos;
   trayectosLength;
   shownGroup;
@@ -19,10 +19,10 @@ export class RoutesPage {
 
   constructor(public navCtrl: NavController,
               public nav: Nav,
-  			      public lineasService : Lineas,
+              public lineasService : Lineas,
               public events: Events) {
 
-  	this.lineas = this.lineasService.loadLineas()[0];
+    this.lineas = this.lineasService.loadLineas()[0];
     this.lineas = Object.keys(this.lineas).map(key => this.lineas[key]);
     this.lineBusData = LineBusData;
     this.trayectos= [];

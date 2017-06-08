@@ -1,4 +1,11 @@
 <ion-content >
+  <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="information != ''">
+    <ion-refresher-content
+      pullingText="Pull to refresh"
+      pullingIcon="arrow-dropdown">
+
+    </ion-refresher-content>
+  </ion-refresher>
 
   <!-- Etiquetas html que muestra el header-->
 
@@ -20,7 +27,7 @@
   <!-- Etiquetas html que muestra los resultados de la paradas-->
   <ion-list>
     <button ion-item *ngFor="let result of results" (click)="getInformation(result)">
-      <!--	<ion-thumbnail item-left>
+      <!--  <ion-thumbnail item-left>
                   <img [src]="result.artworkUrl100">
               </ion-thumbnail>
               <h2 [innerText]="result.trackName"></h2>
@@ -63,20 +70,22 @@
         </ion-list>
       </ul>
 
+      <p>{{currentDate}}</p>
+
     </div>
   </div>
 
   <!-- Etiquetas html que muestra la información de las paradas consultadas-->
 
   <ion-list *ngIf=" isSearching || keyword == '' "
-            [hidden]="paradasConsultadas.length == 0">
+            [hidden]="consultedStops.length == 0">
     <ion-item-divider color="primary" class="logo" fixed>Paradas Consultadas</ion-item-divider>
-    <button ion-item *ngFor="let parada of paradasConsultadas" (click)="getResultEvent(parada.index)">
+    <button ion-item *ngFor="let consultedStop of consultedStops" (click)="getResultEvent(consultedStop.index)">
       <img item-left class="bus" src="assets/img/bus.png">
-      <div item-left class="numeroParada">{{parada.index}}</div>
-      <h2 [innerText]="parada.name"></h2>
+      <div item-left class="numeroParada">{{consultedStop.index}}</div>
+      <h2 [innerText]="consultedStop.name"></h2>
       <ion-icon  class="eliminar" item-right color="danger"
-                 name="remove-circle" (click)="removeData(parada.index)">
+                 name="remove-circle" (click)="removeData(consultedStop.index)">
       </ion-icon>
     </button>
   </ion-list>

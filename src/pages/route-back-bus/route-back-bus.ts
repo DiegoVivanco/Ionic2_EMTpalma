@@ -24,18 +24,18 @@ export class RouteBackBus {
   stopsLineBackList;
   stopsNamesLineBackList;
   routeMapBack: any;
-  paradasMapa: any;
+  stopsMap: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public paradasMapaService: ParadasMapa) {
+    public stopsMapService: ParadasMapa) {
 
     this.routeSelected = navParams.data;
     this.frequenciesBack = this.routeSelected.frecuencias;
     this.routeMapBack = this.routeSelected.recorridoVuelta;
     this.stopsLineBackList = this.routeSelected.vuelta;
-    this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
+    this.stopsMap = this.stopsMapService.loadStopsMap()[0];
     this.stopsNamesLineBackList = this.getRouteBackCoordsList();
     this.showMap = false;
     this.hideFabMap = false;
@@ -47,7 +47,7 @@ export class RouteBackBus {
 
   changeColorTimeLine(){
     let elements = <HTMLElement[]><any>document.querySelectorAll('.royal');
-    for (var i = 0; i < elements.length; i++) {
+    for (let i = 0; i < elements.length; i++) {
         elements[i].style.borderColor = this.routeSelected.colorfuerte;
     }
   }
@@ -83,7 +83,7 @@ export class RouteBackBus {
   getRouteBackCoordsList(){
     let result = this.routeSelected.vuelta
       .map(String)
-      .map((stopTmp: string) => this.paradasMapa[stopTmp]);
+      .map((stopTmp: string) => this.stopsMap[stopTmp]);
 
     return result;
   }

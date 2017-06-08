@@ -22,20 +22,20 @@ export class RouteForwardBus {
   routeSelected;
   frequenciesForward;
   stopsLineForwardList;
-  stopsNamesLineForwardList;  
+  stopsNamesLineForwardList;
   routeMapForward: any;
-  paradasMapa: any;
+  stopsMap: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public paradasMapaService: ParadasMapa) {
+    public stopsMapService: ParadasMapa) {
 
     this.routeSelected = navParams.data;
     this.frequenciesForward = this.routeSelected.frecuencias;
     this.routeMapForward = this.routeSelected.recorridoIda;
     this.stopsLineForwardList = this.routeSelected.ida;
-    this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
+    this.stopsMap = this.stopsMapService.loadStopsMap()[0];
     this.stopsNamesLineForwardList = this.getRouteForwardCoordsList();
     this.showMap = false;
     this.hideFabMap = false;
@@ -47,11 +47,11 @@ export class RouteForwardBus {
 
   changeColorTimeLine(){
     let elements = <HTMLElement[]><any>document.querySelectorAll('.royal');
-    for (var i = 0; i < elements.length; i++) {
+    for (let i = 0; i < elements.length; i++) {
         elements[i].style.borderColor = this.routeSelected.colorfuerte;
     }
   }
-  
+
   showMapForward(){
       this.showMap = true;
       this.hideFabMap = true;
@@ -83,7 +83,7 @@ export class RouteForwardBus {
    getRouteForwardCoordsList(){
     let result = this.routeSelected.ida
        .map(String)
-       .map((stopTmp: string) => this.paradasMapa[stopTmp]);
+       .map((stopTmp: string) => this.stopsMap[stopTmp]);
 
     return result;
    }

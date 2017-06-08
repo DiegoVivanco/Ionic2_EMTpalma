@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import { ParadasMapa } from '../../providers/paradas-mapa';
+// import * as moment from 'moment';
 
 @Component({
   selector: 'page-home',
@@ -11,68 +12,79 @@ import { ParadasMapa } from '../../providers/paradas-mapa';
 })
 export class HomePage {
 
-  paradasConsultadas: any;
-  paradas: any;
+  consultedStops: any;
+  stops: any;
   keyword: any;
   results: any;
   information: any;
-  publicKey: any;
-  encrypted: any;
-  encodedData: any;
-  response: any;
   isSearching: any;
+  currentDate: any;
 
 
   constructor(public navCtrl: NavController,
               public http: Http,
               public storage: Storage,
-              public paradasMapaService: ParadasMapa,
-              public navParams: NavParams,
+              public stopsMapaService: ParadasMapa,
               protected platform: Platform,
               public events: Events) {
-    this.paradasConsultadas = [];
-    this.paradas = this.paradasMapaService.generateLoadParadas().stops;
-    console.log(this.paradas);
+    this.consultedStops = [];
+    this.stops = this.stopsMapaService.generateLoadStops().stops;
+    console.log(this.stops);
     this.results = [];
     this.information = [];
     this.keyword = '';
-    this.response = '';
     this.getAllItems();
     this.isSearching = true;
-
+    this.currentDate =  new Date().toLocaleString();
+    console.log(this.currentDate);
+    // this. currentDate = new moment().format('MMMM Do YYYY, h:mm:ss');
+    // console.log(this.currentDate);
     events.subscribe('getid', (id: string) => {
-      this.paradas = this.paradasMapaService.generateLoadParadas().stops;
+      this.stops = this.stopsMapaService.generateLoadStops().stops;
       this.getResultEvent(id);
     });
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.stops = this.stopsMapaService.generateLoadStops().stops;
+    this.currentDate =  new Date().toLocaleString();
+    this.getResultEvent(this.keyword);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
   getResultEvent(id: string){
     this.keyword = id;
     this.isSearching = false;
-    const results: any[] = this.paradas.filter((item) => item.numeroParada === id);
+    const results: any[] = this.stops.filter((item) => item.numeroParada === id);
     if (results) {
       this.getInformation(results[0]);
     }
   }
 
   userPressedCancel() {
-    this.results = this.paradas;
+    this.results = this.stops;
     this.keyword = '';
   }
 
-  keyHasBeedPressed(e) {
+  keyHasBeedPressed() {
     if (this.keyword === '') {
       this.results = [];
       this.information = [];
     } else {
       this.isSearching = false;
-      this.results = this.paradas.filter((item) => 
+      this.results = this.stops.filter((item) =>
         item.numeroParada.toLowerCase().includes(this.keyword.toLowerCase()) ||
         item.nombreParada.toLowerCase().includes(this.keyword.toLowerCase()));
     }
   }
 
   getInformation(result: any) {
+    this.keyword = result.numeroParada;
     this.information = result;
     this.setData(result);
     this.results = [];
@@ -80,25 +92,20 @@ export class HomePage {
 
   setData(result: any) {
     this.storage.set(this.keyword, result.nombreParada);
-    this.paradasConsultadas = [];
+    this.consultedStops = [];
     this.getAllItems();
-  }
-
-  getData() {
-    this.storage.get('myData').then((data) => {
-    });
   }
 
   removeData(index: any) {
     this.storage.remove(index);
-    this.paradasConsultadas = [];
+    this.consultedStops = [];
     this.getAllItems();
   }
 
   getAllItems() {
     this.storage.ready().then(() => {
       this.storage.forEach((value, key, index) => {
-        this.paradasConsultadas.push({
+        this.consultedStops.push({
           id: index,
           name: value,
           index: key,

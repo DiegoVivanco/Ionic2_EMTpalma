@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, ModalController, ActionSheetController, Events } from 'ionic-angular'; //ActionSheetController
+import { NavController, Events } from 'ionic-angular';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 import { ParadasMapa } from '../../providers/paradas-mapa';
 import { HomePage } from '../home/home';
@@ -25,37 +25,36 @@ const searchControl = new GeoSearchControl({
 export class StopsPage {
   cluster;
   @ViewChild('map') mapElement;
-  Coordinates: any;
+  coordinates: any;
   watch:any;
-  paradasMapa;
-  paradasGeneradas;
+  stopsMap;
+  stopsGenerated;
   tab1Root;
   marker;
   map;
 
   constructor(
     public navCtrl: NavController,
-    public modalCtrl: ModalController,
-    public paradasMapaService: ParadasMapa,
+    public stopsMapService: ParadasMapa,
     private geolocation: Geolocation,
-    public actionSheetCtrl: ActionSheetController,
     public events: Events)
   {
     this.cluster = L.markerClusterGroup();
-    this.paradasMapa = this.paradasMapaService.loadParadasMapa()[0];
-    this.paradasGeneradas = this.paradasMapaService.generateLoadParadas();
-    console.log(this.paradasGeneradas);
+    this.stopsMap = this.stopsMapService.loadStopsMap()[0];
+    this.stopsGenerated = this.stopsMapService.generateLoadStops();
+    console.log(this.stopsGenerated);
     this.tab1Root = HomePage;
   }
 
   ionViewDidLoad() {
     /*Initializing geolocation*/
-    let options = { frequency: 3000, enableHighAccuracy: true };
-
-    this.watch = this.geolocation.watchPosition(options)
-      .subscribe((position: Geoposition) => {
-        this.Coordinates = position.coords;
-      });
+    // let options = { frequency: 3000, enableHighAccuracy: true };
+    //
+    // this.watch = this.geolocation.watchPosition(options)
+    //   .subscribe((position: Geoposition) => {
+    //     this.coordinates = position.coords;
+    //     console.log(this.coordinates);
+    //   });
 
   }
 
@@ -78,8 +77,8 @@ export class StopsPage {
   }
 
   showMarkers(){
-    for (var key in this.paradasMapa) {
-      if(this.paradasMapa[key][0] !== null){
+    for (let key in this.stopsMap) {
+      if(this.stopsMap[key][0] !== null){
         let busIcon =  new L.DivIcon({
           className: 'myDivIcon',
           html: '<img class="myDivImage" src="assets/img/bus2.png"/>'+
@@ -87,7 +86,7 @@ export class StopsPage {
         });
 
         let popupLink=  '<div>' +
-          '<p class="name"> '+key+' - '+this.paradasMapa[key][2]+'</p>' +
+          '<p class="name"> '+key+' - '+this.stopsMap[key][2]+'</p>' +
 
           '<span class="routeList small">' +
 
@@ -99,11 +98,35 @@ export class StopsPage {
 
           '<button class="selectCoords" id="'+key+'">Seleccionar</button>' +
           '</div>';
-        this.marker = L.marker([this.paradasMapa[key][0], this.paradasMapa[key][1]], {icon: busIcon}).bindPopup(popupLink);
+        this.marker = L.marker([this.stopsMap[key][0], this.stopsMap[key][1]], {icon: busIcon}).bindPopup(popupLink);
         this.cluster.addLayer(this.marker);
       }
     };
 
     this.map.addLayer(this.cluster);
   }
+
+  getLocationLeaflet(){
+    this.map.locate({setView: true, maxZoom: 16});
+    this.map.on('locationfound', this.onLocationFound);
+    this.map.on('locationerror', this.onLocationError);
+  }
+
+  onLocationFound(e) {
+      let radius = e.accuracy / 2;
+      let location = e.latlng;
+      let market = L.marker(location);
+      let circle = L.circle(location, radius);
+      this.cluster.addLayer(market);
+      this.cluster.addLayer(circle);
+      this.map.addLayer(this.cluster);
+
+    console.log(market);
+      L.circle(location, radius).addTo(this.map);
+  }
+
+  onLocationError(e) {
+      alert(e.message);
+  }
+
 }

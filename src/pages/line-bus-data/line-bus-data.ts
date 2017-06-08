@@ -19,12 +19,12 @@ export class LineBusData {
   tab2Root = RouteBackBus;
   tab1Params;
   tab2Params;
-  lineaSeleccionada;
-  trayectos;
-  frecuencias;
-  frecuenciasForward;
-  frecuenciasBack;
-  trayectosLength;
+  selectedLine;
+  routes;
+  frequencies;
+  frequenciesForward;
+  frequenciesBack;
+  routesLength;
   shownGroupForward;
   shownGroupBack;
   map;
@@ -34,34 +34,34 @@ export class LineBusData {
           public events: Events) {
       this.tab1Params = [];
       this.tab2Params = [];
-      this.lineaSeleccionada = [];
-      this.trayectos = [];
-      this.frecuencias = [];
-      this.frecuenciasForward = [];
-      this.frecuenciasBack = [];
-      this.trayectosLength = 0;
+      this.selectedLine = [];
+      this.routes = [];
+      this.frequencies = [];
+      this.frequenciesForward = [];
+      this.frequenciesBack = [];
+      this.routesLength = 0;
       this.shownGroupForward = null;
       this.shownGroupBack = null;
 
 
       this.events.subscribe('getlinea', (trayecto) => {
-          this.lineaSeleccionada = trayecto;
+          this.selectedLine = trayecto;
           this.tab1Params = trayecto;
           this.tab2Params = trayecto;
 
-          this.trayectos = this.lineaSeleccionada.recorridoCircular;
+          this.routes = this.selectedLine.recorridoCircular;
         });
     }
 
   toggleGroupForward(group: any){
-    if(this.trayectos[group].frecuencias.length === 0){
+    if(this.routes[group].frequencies.length === 0){
 
-      this.frecuenciasForward = [];
+      this.frequenciesForward = [];
     }else{
-      this.frecuenciasForward = this.trayectos[group].frecuencias;
+      this.frequenciesForward = this.routes[group].frequencies;
     }
-      console.log(group)
-      console.log(this.frecuencias)
+      console.log(group);
+      console.log(this.frequencies);
       if(this.isGroupShownForward(group)){
         this.shownGroupForward = null;
       }else {
@@ -74,15 +74,15 @@ export class LineBusData {
   }
 
   toggleGroupBack(group: any){
-    if(this.trayectos[group].frecuencias.length === 0){
+    if(this.routes[group].frequencies.length === 0){
 
-      this.frecuenciasBack = [];
+      this.frequenciesBack = [];
     }
     else{
-      this.frecuenciasBack = this.trayectos[group].frecuencias;
+      this.frequenciesBack = this.routes[group].frequencies;
     }
-      console.log(group)
-      console.log(this.frecuencias)
+      console.log(group);
+      console.log(this.frequencies);
       if(this.isGroupShownBack(group)){
         this.shownGroupBack = null;
       }else {

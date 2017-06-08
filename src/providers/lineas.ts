@@ -11,12 +11,12 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Lineas {
 
-	lineas: any;
+  lineas: any;
 
   constructor(public http: Http) {}
 
   loadLineas(){
-  	return [
+    return [
 
           {
   "1": {
@@ -6731,7 +6731,7 @@ export class Lineas {
     "uriEn": null,
     "uriDe": null,
     "uriCt": null,
-    "routes": 1,
+    "routes": "circular",
     "trayectos": [
       {
         "nombreLinea": "Circumval·lació Centre Històric",
@@ -88806,14 +88806,14 @@ export class Lineas {
     "destinoDe": "Gènova"
   }
 }
-  		
-  		]
+
+      ]
   }
 
 }
 
 
-/* 
+/*
 {
        "linea": 1,
        "nombreLinea": "Aeroport-Ciutat-Port",

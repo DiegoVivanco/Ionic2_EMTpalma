@@ -12,20 +12,16 @@
      <section id="cd-timeline" class="cd-container"  *ngFor="let timeForwardList of stopsNamesLineForwardList; let i=index" [hidden]="showMap">
       <div >
         <div class="cd-timeline-block">
-          <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
           <div class="cd-timeline-icon royal" [style.background-color]="routeSelected.colorfuerte">
             {{stopsLineForwardList[i]}}
           </div>
-          <!-- CUSTOMIZE YOUR STYLE USING DEFAULT IONIC VALUES SUCH AS POSITIVE, CALM, BALANCED,... -->
           <div class="cd-timeline-content royal">
 
-
             <h5 class="marginBottom0 marginTop0">{{timeForwardList[2]}}</h5>
-            <p class="marginTop5 cd-author">{{stopsLineForwardList[i]}}</p>
           </div>
         </div>
       </div>
-    </section> 
+    </section>
 
   <div class="sectionFrecuencias" [hidden]="showMap" >
 

@@ -1,131 +1,22 @@
-<ion-header  *ngIf="lineaSeleccionada">
+<ion-header  *ngIf="selectedLine">
   <ion-navbar class="force-back-button">
     <ion-title>
-		<div item-left class="colorParada" [style.background-color]="lineaSeleccionada.colorfuerte">{{lineaSeleccionada.claveLinea}}</div>
-        <h2 class="nombreLinea" [innerText]="lineaSeleccionada.nombreLinea"></h2>
+		<div item-left class="colorParada" [style.background-color]="selectedLine.colorfuerte">{{selectedLine.claveLinea}}</div>
+        <h2 class="nombreLinea" [innerText]="selectedLine.nombreLinea"></h2>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding >
-<ion-tabs tabsPlacement="top" *ngIf="trayectos == null">
+
+<ion-tabs tabsPlacement="top" *ngIf="routes == null">
 	<!-- ion tabs -->
-  <ion-tab [root]="tab1Root" [rootParams]="tab1Params" tabTitle="{{lineaSeleccionada.nombre}} - {{lineaSeleccionada.destino}}" ></ion-tab>
-  <ion-tab [root]="tab2Root" [rootParams]="tab2Params" tabTitle="{{lineaSeleccionada.nombre}} - {{lineaSeleccionada.origen}}" ></ion-tab>
+  <ion-tab [root]="tab1Root" [rootParams]="tab1Params" tabTitle="{{selectedLine.nombre}} - {{selectedLine.destino}}" ></ion-tab>
+  <ion-tab [root]="tab2Root" [rootParams]="tab2Params" tabTitle="{{selectedLine.nombre}} - {{selectedLine.origen}}" ></ion-tab>
 
 
 </ion-tabs>
-  <!-- <ion-list *ngIf="trayectosLength > 1">
 
-    <div *ngFor="let trayecto of trayectos; let i=index" text-wrap>
-        <ion-item (click)="toggleGroupForward(i)" [ngClass]="{active: isGroupShownForward(i)}" >
-            	<ion-icon item-left name="arrow-round-forward"></ion-icon>
-	            {{trayecto.nombre}} sentido hacia {{trayecto.destino}}
-	            <ion-icon color="primary" item-right
-	            		[name]="isGroupShownForward(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
-	            </ion-icon>
-
-            <div class="leafletmap" id="leafletmap" #leafletmap *ngIf="isGroupShownForward(i)">
-
-            </div>
-
-	        <div class="sectionFrecuencias" *ngIf="isGroupShownForward(i)">
-
-        		<h2>
-	            	<ion-icon item-left name="time"></ion-icon>
-	            	<strong>Frecuencias</strong>
-	        	</h2>
-
-	        	<div *ngIf="frecuenciasForward">
-		        	<div *ngFor="let frecuenciaForward of frecuenciasForward">
-		        		<span>
-		        			<ion-icon item-left name="calendar"></ion-icon>
-		            		<span>{{frecuenciaForward.nombreEs}}</span>
-		        		</span>
-
-		        		<span *ngIf="frecuenciaForward.mananas > 0">
-		        			<span>
-		        				<strong>Mañanas:</strong> {{frecuenciaForward.mananas}} minutos
-		        			</span>
-		        			<span>
-		        				<strong>Tardes:</strong> {{frecuenciaForward.tardes}} minutos
-		        			</span>
-		        		</span>
-
-		        		<span>
-		        			<span>
-		        				<strong>Primeras salidas:</strong> {{frecuenciaForward.primerasSalidasVuelta}}
-		        			</span>
-		        			<span>
-		        				<strong>Últimas salidas:</strong> {{frecuenciaForward.ultimasSalidasVuelta}}
-		        			</span>
-		        		</span>
-		        	</div>
-	        	</div>
-
-        	</div>
-        </ion-item>
-
-        <ion-item (click)="toggleGroupBack(i)" [ngClass]="{active: isGroupShownBack(i)}" >
-        		<ion-icon item-left name="arrow-round-back"></ion-icon>
-        	    {{trayecto.nombre}} sentido hacia {{trayecto.origen}}
-        	    <ion-icon color="primary" item-right
-	            		[name]="isGroupShownBack(i) ? 'ios-add-circle-outline' : 'ios-remove-circle-outline'">
-	            </ion-icon>
-
-	        <div class="sectionFrecuencias" *ngIf="isGroupShownBack(i)" >
-
-        		<h2>
-	            	 <ion-icon  item-left name="time"></ion-icon>
-	            	<strong>Frecuencias</strong>
-	        	</h2>
-
-	        	<div *ngIf="frecuenciasBack" >
-		        	<div *ngFor="let frecuenciaBack of frecuenciasBack">
-		        		<span>
-		        			<ion-icon item-left name="calendar"></ion-icon>
-		            		<span>{{frecuenciaBack.nombreEs}}</span>
-		        		</span>
-
-		        		<span *ngIf="frecuenciaBack.mananas > 0">
-		        			<span>
-		        				<strong>Mañanas:</strong> {{frecuenciaBack.mananas}} minutos
-		        			</span>
-		        			<span>
-		        				<strong>Tardes:</strong> {{frecuenciaBack.tardes}} minutos
-		        			</span>
-		        		</span>
-
-		        		<span>
-		        			<span>
-		        				<strong>Primeras salidas:</strong> {{frecuenciaBack.primerasSalidasVuelta}}
-		        			</span>
-		        			<span>
-		        				<strong>Últimas salidas:</strong> {{frecuenciaBack.ultimasSalidasVuelta}}
-		        			</span>
-		        		</span>
-		        	</div>
-	        	</div>
-
-	        </div>
-	    </ion-item>
-
-
-    </div>
-
-  </ion-list>
-
-   <ion-list *ngIf="trayectosLength == 1">
-         <div text-wrap>
-            <ion-item>
-            <ion-icon item-left name="repeat">
-            </ion-icon>
-            	Trayecto circular
-            </ion-item>
-
-        </div>
-
-  </ion-list> -->
 </ion-content>
 

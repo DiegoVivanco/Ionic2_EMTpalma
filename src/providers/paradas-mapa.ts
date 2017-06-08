@@ -14,7 +14,7 @@ export class ParadasMapa {
   constructor(public http: Http) {}
 
 
-  loadParadasMapa(){
+  loadStopsMap(){
     return [
     {
       "1": [
@@ -4737,18 +4737,18 @@ export class ParadasMapa {
         ]
 }
 
-  generateLoadParadas(){
+  generateLoadStops(){
     let generate = {
       stops: []
     };
 
-    let paradasMapa = this.loadParadasMapa()[0];
-    for (let key in paradasMapa){
+    let stopsMap = this.loadStopsMap()[0];
+    for (let key in stopsMap){
 
 
       generate.stops.push({
         "numeroParada" : key,
-        "nombreParada" : paradasMapa[key][2],
+        "nombreParada" : stopsMap[key][2],
         "estimaciones": [
           {
             "color": "rgb(243, 219, 120)",
@@ -4789,7 +4789,7 @@ export class ParadasMapa {
   }
 
   generateMinutes(){
-    let seconds = Math.floor(Math.random() * 900);
+    let seconds = Math.floor(Math.random() * 900) + 120;
 
     let minutes = seconds / 60;
     let minutesString = minutes.toString();
@@ -4811,6 +4811,6 @@ export class ParadasMapa {
 
     let minutesInt = parseInt(result);
 
-    return minutesInt;    
+    return minutesInt;
   }
 }
