@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Paradas } from '../../providers/paradas';
 
 /**
  * Generated class for the Warnings page.
@@ -14,11 +15,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WarningsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  warnings: any;
+  shownGroup;
+
+  constructor(
+        public navCtrl: NavController,
+        public warningsStopService: Paradas,
+  ) {
+    this.warnings = warningsStopService.loadWarningStops();
+    this.shownGroup = null;
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Warnings');
+  toggleGroup(group: any){
+
+    if(this.isGroupShown(group)){
+      this.shownGroup = null;
+    }else {
+      this.shownGroup = group;
+    }
   }
+
+  isGroupShown(group: any){
+    return this.shownGroup === group;
+
+  }
+
+
 
 }

@@ -4,7 +4,7 @@
   <ion-tab #myNav [root]="tab1Root" (ionSelect)="viewMode()" tabTitle="Paso por parada" tabIcon="emt-paso"></ion-tab>
   <ion-tab [root]="tab2Root" (ionSelect)="viewModeMap()" tabTitle="Paradas" tabIcon="emt-gps"></ion-tab>
   <ion-tab [root]="tab3Root" (ionSelect)="viewModeMap()" tabTitle="Líneas" tabIcon="emt-lineas"></ion-tab>
-  <ion-tab [root]="tab4Root" (ionSelect)="viewMode()" tabTitle="Avisos" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="tab4Root" (ionSelect)="viewMode()" tabTitle="Avisos" tabBadge="{{warningsCount}}" tabBadgeStyle="danger" tabIcon="ios-alert-outline"></ion-tab>
 
   	<!-- floating bottom -->
 
@@ -26,10 +26,10 @@
 	   	     </button>
 	     	 <ion-label class="fablabelAbout">Acerca de</ion-label>
 
-	     	 <button ion-fab (click)="goToSettingsPage($event, fab)">
-	             <img src="assets/img/settings2.svg">
-	   	     </button>
-	     	 <ion-label class="fablabelSetting">Ajustes</ion-label>
+	     	 <!--<button ion-fab (click)="goToSettingsPage($event, fab)">-->
+	             <!--<img src="assets/img/settings2.svg">-->
+	   	     <!--</button>-->
+	     	 <!--<ion-label class="fablabelSetting">Ajustes</ion-label>-->
 
 	     </ion-fab-list>
   </ion-fab>

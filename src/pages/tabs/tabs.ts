@@ -10,6 +10,8 @@ import { AboutPage } from '../about/about';
 import { SettingsPage } from '../settings/settings';
 import { ContactPage } from '../contact/contact';
 
+import { Paradas } from '../../providers/paradas';
+
 
 
 @Component({
@@ -27,14 +29,20 @@ export class TabsPage {
   tab4Root = WarningsPage;
 
   viewModel: any;
+  warningsCount: any;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+        public navCtrl: NavController,
+        public warningsStopService: Paradas,
+  ) {
          this.aboutPage = AboutPage;
          this.settingsPage = SettingsPage;
          this.contactPage = ContactPage;
          this.viewModel = '';
+         this.warningsCount = warningsStopService.loadWarningStops().length;
+         console.log(this.warningsCount);
   }
 
   viewMode(){

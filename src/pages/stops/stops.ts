@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
-import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 import { ParadasMapa } from '../../providers/paradas-mapa';
 import { HomePage } from '../home/home';
 
@@ -15,7 +14,7 @@ const provider = new OpenStreetMapProvider();
 const searchControl = new GeoSearchControl({
   provider: provider,
   autoClose: true,
-  searchLabel: 'Escribe tu dirección'   // optional: true|false  - default false
+  searchLabel: 'Escribe tu dirección'
 });
 
 @Component({
@@ -25,7 +24,6 @@ const searchControl = new GeoSearchControl({
 export class StopsPage {
   cluster;
   @ViewChild('map') mapElement;
-  coordinates: any;
   watch:any;
   stopsMap;
   stopsGenerated;
@@ -36,7 +34,6 @@ export class StopsPage {
   constructor(
     public navCtrl: NavController,
     public stopsMapService: ParadasMapa,
-    private geolocation: Geolocation,
     public events: Events)
   {
     this.cluster = L.markerClusterGroup();
@@ -46,18 +43,6 @@ export class StopsPage {
     this.tab1Root = HomePage;
   }
 
-  ionViewDidLoad() {
-    /*Initializing geolocation*/
-    // let options = { frequency: 3000, enableHighAccuracy: true };
-    //
-    // this.watch = this.geolocation.watchPosition(options)
-    //   .subscribe((position: Geoposition) => {
-    //     this.coordinates = position.coords;
-    //     console.log(this.coordinates);
-    //   });
-
-  }
-
   ngOnInit(): void {
     this.map = L.map('map').setView([39.5748641, 2.6449896], 14);
 
@@ -65,15 +50,39 @@ export class StopsPage {
       zoom: 14,
       accessToken: 'pk.eyJ1IjoiZGx2aXZhbmNvIiwiYSI6ImNqMzBjY3ZpcTAwMWcycXBnN251b3M0Z2IifQ.qhYk3raWsVyuhbMvr1B4LA'
     }).addTo(this.map);
-    this.showMarkers();
     this.map.addControl(searchControl);
+
+    this.map.locate({setView: true, maxZoom: 16});
+
+    const selfMap = <StopsPage> this;
+    function onLocationFound(e) {
+      let iconMap =  new L.DivIcon({
+        className: 'myDivIcon',
+        html: '<img class="myImage" src="assets/img/iconMap.svg"/>'});
+
+      let radius = e.accuracy / 2;
+
+      L.marker(e.latlng, {icon: iconMap} ).addTo(selfMap.map)
+        .bindPopup("Tú estas aquí").openPopup();
+
+      L.circle(e.latlng, radius).addTo(selfMap.map);
+    }
+
+    this.map.on('locationfound', onLocationFound);
+
+    function onLocationError(e) {
+      alert("Geolocation desactivada");
+    }
+
+    this.map.on('locationerror', onLocationError);
+
+    this.showMarkers();
 
     const self = <StopsPage> this;
     jQuery('#map').on('click', '.selectCoords', function(e) {
       self.navCtrl.parent.select(0);
       self.events.publish('getid', e.target.id);
     });
-
   }
 
   showMarkers(){
@@ -105,28 +114,4 @@ export class StopsPage {
 
     this.map.addLayer(this.cluster);
   }
-
-  getLocationLeaflet(){
-    this.map.locate({setView: true, maxZoom: 16});
-    this.map.on('locationfound', this.onLocationFound);
-    this.map.on('locationerror', this.onLocationError);
-  }
-
-  onLocationFound(e) {
-      let radius = e.accuracy / 2;
-      let location = e.latlng;
-      let market = L.marker(location);
-      let circle = L.circle(location, radius);
-      this.cluster.addLayer(market);
-      this.cluster.addLayer(circle);
-      this.map.addLayer(this.cluster);
-
-    console.log(market);
-      L.circle(location, radius).addTo(this.map);
-  }
-
-  onLocationError(e) {
-      alert(e.message);
-  }
-
 }

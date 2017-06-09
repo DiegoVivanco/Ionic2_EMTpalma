@@ -8,13 +8,29 @@
 
 
 <ion-content padding>
-  <h2>Welcome to warningsPage</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>Avisos EMT-Palma</h2>
+  <ion-list>
+    <ion-item *ngFor="let warning of warnings; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+      <h2 class="warningTitle" [innerText]="warning.titulo"></h2>
+
+      <span class="date" >{{warning.inicio}} hasta {{warning.fin}}</span>
+
+
+      <ion-icon color="primary" item-right
+                [name]="isGroupShown(i) ? 'ios-remove-circle-outline' : 'ios-add-circle-outline' ">
+      </ion-icon>
+
+      <div class="description" *ngIf="isGroupShown(i)">
+
+        <div>
+          <div>
+            <span>{{warning.serviciosAfectados}}</span>
+            <span>{{warning.descripcion}}</span>
+          </div>
+        </div>
+
+
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>

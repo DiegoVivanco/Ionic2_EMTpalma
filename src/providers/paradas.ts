@@ -13,116 +13,30 @@ export class Paradas {
 
   constructor(public http: Http) {}
 
-  loadParadas(){
+  loadWarningStops(){
     return [
       {
-        "numeroParada": "1",
-        "nombreParada": "Porta de Sant Antoni",
-        "estimaciones": [
-          {
-            "color": "rgb(243, 219, 120)",
-            "line": "11",
-            "vh_first": {
-              "destino": "SA INDIOTERIA",
-              "seconds": 570,
-              "enParada": false,
-              "llegando": false
-            },
-            "vh_second": {
-              "destino": "SA INDIOTERIA",
-              "seconds": 2370,
-              "enParada": false,
-              "llegando": false
-            }
-          }, {
-            "color": "rgb(211, 221, 125)",
-            "line": "31",
-            "vh_first": {
-              "destino": "A-S'ARENAL-S.JORDI",
-              "seconds": 570,
-              "enParada": false,
-              "llegando": false
-            },
-            "vh_second": {
-              "destino": "SA INDIOTERIA",
-              "seconds": 2370,
-              "enParada": false,
-              "llegando": false
-            }
-          } ]
+        "titulo": "L3. NUEVO HORARIO SÁBADOS",
+        "inicio": "03/06/2017 05:40",
+        "fin": "19/06/2017 10:40",
+        "serviciosAfectados": "Autobús EMT",
+        "descripcion": "A partir del día 3 de junio se amplía el horario nocturno de los sábados en la línea 3 Pont d'Inca-Illetes. Para más detalle pueden consultar el horario adjunto"
       },
       {
-        "numeroParada": "2",
-        "nombreParada": "Plaça d'Espanya",
+        "titulo": "L15. CAMBIO DE RECORRIDO",
+        "inicio": "08/06/2017 07:40",
+        "fin": "08/07/2017 00:00",
+        "serviciosAfectados": "Autobús EMT",
+        "descripcion": "A partir del jueves 8 de junio se prohíbe el acceso a Joan Maragall desde Torres Llavaneres / Manuel Azaña. En consecuencia la línea 15 cambiará su recorrido, quedando anuladas para esta línea las paradas 449-Joan Maragall, 25 y 459-Joan Maragall, 18. Para mayor información consulten el aviso adjunto."
       },
       {
-        "numeroParada": "3",
-        "nombreParada": "Comte de Sallent",
+        "titulo": "L30. CAMBIO DE RECORRIDO",
+        "inicio": "08/06/2017 07:00",
+        "fin": "08/07/2017 00:03",
+        "serviciosAfectados": "Autobús EMT",
+        "descripcion": "Con motivo de la prohíbición de girar a la izquiersa desde Manuel Azaña, a partir del jueves 8 de junio, la línea 30 no podrá pasar por Joan Maragall en dirección a PL. d'Espanya. En dirección Can Pastilla la ruta no varía. Para mayor información pueden consultar el aviso adjunto."
       },
-      {
-        "numeroParada": "4",
-        "nombreParada": "Biniamar, 10",
-      },
-      {
-        "numeroParada": "6",
-        "nombreParada": "Porta de Sant Antoni",
-      },
-      {
-        "numeroParada": "7",
-        "nombreParada": "Plaça de la Reina",
-      },
-      {
-        "numeroParada": "8",
-        "nombreParada": "Es Jonquet",
-      },
-      {
-        "numeroParada": "9",
-        "nombreParada": "Passeig Marítim, 2",
-      },
-      {
-        "numeroParada": "10",
-        "nombreParada": "Auditorium",
-      },
-      {
-        "numeroParada": "11",
-        "nombreParada": "Passeig Marítim, 33",
-      },
-      {
-        "numeroParada": "12",
-        "nombreParada": "Can Barberà",
-      },
-      {
-        "numeroParada": "13",
-        "nombreParada": "Aragó, 271",
-      },
-      {
-        "numeroParada": "14",
-        "nombreParada": "Club de Mar",
-      },
-      {
-        "numeroParada": "15",
-        "nombreParada": "Port de Palma (Estació Marítima)",
-      },
-      {
-        "numeroParada": "16",
-        "nombreParada": "Dic de l'Oest, 2",
-      },
-      {
-        "numeroParada": "17",
-        "nombreParada": "Museu de Sant Carles",
-      },
-      {
-        "numeroParada": "18",
-        "nombreParada": "Escola de Naùtica",
-      },
-      {
-        "numeroParada": "19",
-        "nombreParada": "Passeig Mallorca, 39",
-      },
-      {
-        "numeroParada": "20",
-        "nombreParada": "Passeig Mallorca, 18",
-      }
+
     ]
   }
 }

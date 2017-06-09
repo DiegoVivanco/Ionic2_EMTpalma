@@ -1,7 +1,7 @@
 <ion-content >
   <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="information != ''">
     <ion-refresher-content
-      pullingText="Pull to refresh"
+      pullingText="Tirar para actualizar"
       pullingIcon="arrow-dropdown">
 
     </ion-refresher-content>
@@ -87,13 +87,13 @@
         <img item-left class="bus" src="assets/img/bus.png">
         <div item-left class="numeroParada">{{consultedStop.index}}</div>
         <h2 [innerText]="consultedStop.name"></h2>
-       <!-- <ion-icon  class="eliminar" item-right color="danger"
-                   name="md-close" (click)="removeData(consultedStop.index)">
-        </ion-icon> -->
+        <ion-icon  item-right
+                   name="md-arrow-back" >
+        </ion-icon>
       </button>
 
       <ion-item-options>
-                <button class="remove" color="danger" (click)="removeData(consultedStop.index)">Delete</button>
+                <button class="remove" color="danger" (click)="removeData(consultedStop.index)">Borrar</button>
       </ion-item-options>
 
     </ion-item-sliding>
