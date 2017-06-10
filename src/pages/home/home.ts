@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, NavParams, Events } from 'ionic-angular';
+import { NavController, Platform, Events } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';

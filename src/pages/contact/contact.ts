@@ -22,14 +22,10 @@ export class ContactPage {
 
   createEmail(){
   	 this.socialSharing.canShareViaEmail().then(() => {
-        this.socialSharing.shareViaEmail('Hi , ... your message', 'Subject', ['user@user.com']).then(() => {
+        this.socialSharing.shareViaEmail('', 'FeedBack EMT-Palma', ['leox_vm@hotmail.com']).then(() => {
         }).catch(() => {
             alert("Uh!! Seems like some issues right now, please try later");
             });
         })
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Contact');
-  }
-
 }
