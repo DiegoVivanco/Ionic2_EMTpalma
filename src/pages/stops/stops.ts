@@ -60,7 +60,7 @@ export class StopsPage {
         className: 'myDivIcon',
         html: '<img class="myImage" src="assets/img/iconMap.svg"/>'});
 
-      let radius = e.accuracy / 2;
+      let radius = e.accuracy;
 
       L.marker(e.latlng, {icon: iconMap} ).addTo(selfMap.map)
         .bindPopup("Tú estas aquí").openPopup();

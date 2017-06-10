@@ -7,12 +7,23 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>that's contact page</ion-title>
+    <ion-title>Acerca de mi</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-		<p> Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
+		<h2>Desarrollador</h2>
+		<p>Diego Vivanco</p>
+
+		<h2>Version</h2>
+		<p>1.0.0</p>
+
+		<h2>Información</h2>
+		<p>EMT-Palma NO COMPUTA las estimaciones de las diferentes líneas de autobuses, esos datos son extrañidos de servicios de terceros ue en ningún caso puedo controlar.</p>
+
+	    <ion-fab bottom right  [hidden]="hideFapRoute">
+    		<button ion-fab (click)="createEmail()"><ion-icon name="md-create"></ion-icon></button>
+  		</ion-fab>
 </ion-content>

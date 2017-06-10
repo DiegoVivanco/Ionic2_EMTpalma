@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 /**
  * Generated class for the Contact page.
@@ -14,9 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+  			  public navParams: NavParams,
+  			  private socialSharing: SocialSharing) {
   }
 
+  createEmail(){
+  	 this.socialSharing.canShareViaEmail().then(() => {
+        this.socialSharing.shareViaEmail('Hi , ... your message', 'Subject', ['user@user.com']).then(() => {
+        }).catch(() => {
+            alert("Uh!! Seems like some issues right now, please try later");
+            });
+        })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Contact');
   }

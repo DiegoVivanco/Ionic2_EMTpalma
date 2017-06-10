@@ -25,6 +25,8 @@ import { Paradas } from '../providers/paradas';
 import { Lineas } from '../providers/lineas';
 import { ParadasMapa } from '../providers/paradas-mapa';
 
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -72,6 +74,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     ParadasMapa,
     Paradas,
     Geolocation,
+    SocialSharing,
 
     //Storage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
