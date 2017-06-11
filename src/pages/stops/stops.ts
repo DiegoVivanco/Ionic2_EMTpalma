@@ -39,7 +39,6 @@ export class StopsPage {
     this.cluster = L.markerClusterGroup();
     this.stopsMap = this.stopsMapService.loadStopsMap()[0];
     this.stopsGenerated = this.stopsMapService.generateLoadStops();
-    console.log(this.stopsGenerated);
     this.tab1Root = HomePage;
   }
 
@@ -71,7 +70,7 @@ export class StopsPage {
     this.map.on('locationfound', onLocationFound);
 
     function onLocationError(e) {
-      alert("Geolocation desactivada");
+      alert("localización desactivada");
     }
 
     this.map.on('locationerror', onLocationError);
@@ -99,9 +98,9 @@ export class StopsPage {
 
           '<span class="routeList small">' +
 
-          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(114, 192, 216);">5</a>' +
+          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(243, 219, 120);">11</a>' +
 
-          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(238, 170, 96);">46</a>' +
+          '<a class="lineaNum" style="cursor: pointer; background-color: rgb(211, 221, 125);">31</a>' +
 
           '</span>' +
 

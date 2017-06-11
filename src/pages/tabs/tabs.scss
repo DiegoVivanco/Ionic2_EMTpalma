@@ -23,4 +23,13 @@ page-tabs {
        background: cornsilk;
 	}
 
+	.tabs-md .tab-button[aria-selected=true] {
+		color: #3f51b5;
+}
+
+.tabs-md-dark .tab-button[aria-selected=true] .tab-button-icon {
+		color: #3f51b5;
+
+}
+
 }
