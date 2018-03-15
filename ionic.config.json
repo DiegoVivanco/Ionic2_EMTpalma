@@ -1,6 +1,6 @@
 {
   "name": "EMT-palma",
   "app_id": "066520bc",
-  "v2": true,
-  "typescript": true
+  "integrations": {},
+  "type": "ionic-angular"
 }
